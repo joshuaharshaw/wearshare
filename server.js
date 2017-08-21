@@ -23,7 +23,21 @@ var pool = new pg.Pool({
 });
 
 
+// app.get('/api/:userid', function(req,res){
+// 	var sql ='SELECT * FROM photos WHERE userid=$1::int;' 
+// 	var values = [ req.params.userid ];
+// 	pool.query(sql, values).then(function(result){
+// 		res.status(201).send("Sent");
+// 	}).catch(function(err){
+// 		console.log(err);
+// 		res.status(500);
+// 		res.send("server error");
+// 	})
+// });
+
+
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
   console.log('Server is now running on ' + port);
 });
+

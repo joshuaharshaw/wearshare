@@ -23,9 +23,19 @@ var pool = new pg.Pool({
 });
 
 
-// app.get('/api/:userid', function(req,res){
-// 	var sql ='SELECT * FROM photos WHERE userid=$1::int;' 
-// 	var values = [ req.params.userid ];
+// app.get('/users', function(req,res){
+// 	pool.query('SELECT * FROM users').then(function(result){
+// 		res.send(result.rows);
+// 	}).catch(function(err){
+// 		console.log(err);
+// 		res.status(500);
+// 		res.send("server error");
+// 	})
+// });
+
+// app.get('/users/:id', function(req,res){
+// 	var sql ='SELECT * FROM users WHERE id=$1::int;' 
+// 	var values = [ req.params.id ];
 // 	pool.query(sql, values).then(function(result){
 // 		res.status(201).send("Sent");
 // 	}).catch(function(err){
@@ -35,6 +45,44 @@ var pool = new pg.Pool({
 // 	})
 // });
 
+// app.get('/users/:id/items', function(req,res){
+// 	var sql ='SELECT * FROM photos WHERE id=$1::int;' 
+// 	var values = [ req.params.id ];
+// 	pool.query(sql, values).then(function(result){
+// 		res.status(201).send("Sent");
+// 	}).catch(function(err){
+// 		console.log(err);
+// 		res.status(500);
+// 		res.send("server error");
+// 	})
+// });
+
+// app.post('/users', function(req,res){
+// 	var sql ='INSERT INTO users (username, password) ' 
+// 		+ 'VALUES ($1::text, $2::text)';
+// 	var values = [ req.body.username, req.body.password ];
+// 	pool.query(sql, values).then(function(result){
+// 		res.status(201).send("Added");
+// 	}).catch(function(err){
+// 		console.log(err);
+// 		res.status(500);
+// 		res.send("server error");
+// 	})
+// });
+
+
+// app.post('/users/:id/item', function(req,res){
+// 	var sql ='INSERT INTO items (userid, path) ' 
+// 		+ 'VALUES ($1::text, $2::text)';
+// 	var values = [ req.params.userid, req.body.path ];
+// 	pool.query(sql, values).then(function(result){
+// 		res.status(201).send("Added Item");
+// 	}).catch(function(err){
+// 		console.log(err);
+// 		res.status(500);
+// 		res.send("server error");
+// 	})
+// });
 
 var port = process.env.PORT || 8080;
 app.listen(port, function () {

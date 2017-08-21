@@ -1,6 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var pg = require('pg');
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+	cloud_name:"dr1gz6f3y",
+	api_key:"647715557514671",
+	api_secret:"gqj5eFiuKTQ-JkKJCB1UIUo5usI"
+});
 
 var app = express();
 

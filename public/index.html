@@ -5,12 +5,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Outfit App</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="styles/main.css">
 	<link rel="stylesheet" href="styles/medium.css">
 	<link rel="stylesheet" href="styles/small.css">
 </head>
 <body ng-app="outfitApp">
 
+<div id="nav">
+	<p id="nav-logo">OOTD</p>
+	<div class="partition"></div>
+
+	<ul>
+		<a href="#!/home"><li><span class="glyphicon glyphicon-home"></span> <br> Home</li></a>
+		<div class="partition-sm"></div>
+		<a href="#!/profile"><li> <div id="user-img-small"><img src=""></div>Joshua{{user.name}}</li></a>
+	</ul>
+</div>
   <ng-view></ng-view>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>

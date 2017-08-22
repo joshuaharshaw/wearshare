@@ -91,7 +91,7 @@ li {
 /*Viewport-Clothing Items*/
 
 #view-panel {
-	height: 500px;
+	min-height: 500px;
 	background-color: rgba(255,255,255, 1);
 	margin: 10px 20px;
 	padding: 10px;

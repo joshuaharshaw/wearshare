@@ -23,39 +23,39 @@ var pool = new pg.Pool({
 });
 
 
-// app.get('/users', function(req,res){
-// 	pool.query('SELECT * FROM users').then(function(result){
-// 		res.send(result.rows);
-// 	}).catch(function(err){
-// 		console.log(err);
-// 		res.status(500);
-// 		res.send("server error");
-// 	})
-// });
+app.get('/users', function(req,res){
+	pool.query('SELECT * FROM wearshare.users').then(function(result){
+		res.send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
 
-// app.get('/users/:id', function(req,res){
-// 	var sql ='SELECT * FROM users WHERE id=$1::int;' 
-// 	var values = [ req.params.id ];
-// 	pool.query(sql, values).then(function(result){
-// 		res.status(201).send("Sent");
-// 	}).catch(function(err){
-// 		console.log(err);
-// 		res.status(500);
-// 		res.send("server error");
-// 	})
-// });
+app.get('/users/:user_id', function(req,res){
+	var sql ='SELECT * FROM wearshare.users WHERE user_id=$1::int;' 
+	var values = [ req.params.user_id ];
+	pool.query(sql, values).then(function(result){
+		res.status(201).send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
 
-// app.get('/users/:id/items', function(req,res){
-// 	var sql ='SELECT * FROM photos WHERE id=$1::int;' 
-// 	var values = [ req.params.id ];
-// 	pool.query(sql, values).then(function(result){
-// 		res.status(201).send("Sent");
-// 	}).catch(function(err){
-// 		console.log(err);
-// 		res.status(500);
-// 		res.send("server error");
-// 	})
-// });
+app.get('/users/:user_id/articles', function(req,res){
+	var sql ='SELECT * FROM wearshare.articles WHERE user_id=$1::int;'; 
+	var values = [ req.params.user_id ];
+	pool.query(sql, values).then(function(result){
+		res.status(201).send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
 
 // app.post('/users', function(req,res){
 // 	var sql ='INSERT INTO users (username, password) ' 

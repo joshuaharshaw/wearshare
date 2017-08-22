@@ -16,9 +16,9 @@
 		</div>
 	</div>
 	<div id="view-panel">
-		<div class="clothe">
-			<img src="#">
-			<h6>Item Name</h6>
+		<div class="clothe" ng-repeat="article in articles">
+			<img ng-src="{{article.path}}">
+			<h6>{{article.type}}</h6>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		</div>
 	</div>

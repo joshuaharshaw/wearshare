@@ -61,7 +61,7 @@ li {
 
 #main-view {
 	float: left;
-	width: 85%;
+	width: 80%;
 }
 
 /*Profile View*/
@@ -128,10 +128,37 @@ div#home{
 .home-item{
 	background-color:white;
 	width:100%;
-	height:300px;
+	height:auto;
 	padding:10px;
 	border:10px;
 	padding: 20px 0;
 	background-color: white;
 	margin-top: 15px;
 }
+
+.box-item{
+	list-style: none;
+	display: inline-block;
+	padding: 5px;
+	width:200px;
+	height: 180px;
+	margin: 5px;
+	background: #fefefe;
+	border: 2px solid  #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	line-height: 150px;
+	color: white;
+	font-weight: bold;
+	font-size: 3em;
+	text-align: center;
+	margin: 0 5px;
+	/*padding: 15px;*/
+	padding-bottom: 10px;
+}
+
+/*.box-item >img {
+	width: 100%; height: auto;
+border-bottom: 1px solid #ccc;
+padding-bottom: 15px;
+margin-bottom: 5px;
+}*/

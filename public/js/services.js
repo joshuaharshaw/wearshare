@@ -6,4 +6,10 @@ app.service("profileService" , function ($http) {
 			return response.data;
 		});
 	};
+
+	this.getOutfits = function () {
+		return $http.get('/users/1/outfits').then(function (response) {
+			return response.data;
+		});
+	};
 });

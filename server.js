@@ -47,6 +47,18 @@ app.get('users/outfits', function(req,res){
 	})
 });
 
+app.get('/users/:user_id/outfits', function(req,res){
+	var sql ='SELECT * FROM outfits WHERE user_id=$1::int;'; 
+	var values = [ req.params.user_id ];
+	pool.query(sql, values).then(function(result){
+		res.status(201).send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
 app.get('/users/:user_id/articles', function(req,res){
 	var sql ='SELECT * FROM articles WHERE user_id=$1::int;'; 
 	var values = [ req.params.user_id ];

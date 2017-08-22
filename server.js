@@ -45,6 +45,16 @@ app.get('/users/:user_id', function(req,res){
 	})
 });
 
+app.get('users/outfits', function(req,res){
+	pool.query('SELECT * FROM wearshare.outfits').then(function(result){
+		res.send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
 app.get('/users/:user_id/articles', function(req,res){
 	var sql ='SELECT * FROM wearshare.articles WHERE user_id=$1::int;'; 
 	var values = [ req.params.user_id ];

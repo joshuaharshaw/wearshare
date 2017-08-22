@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var pg = require('pg');
 var cloudinary = require('cloudinary');
+var pool = require("./pgconnectionpool");
 
 cloudinary.config({
 	cloud_name:"dr1gz6f3y",
@@ -13,15 +14,6 @@ var app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-
-var pool = new pg.Pool({
-	user:'postgres',
-	password: 'sqlbeast',
-	host: 'localhost',
-	port: 5432,
-	database: 'postgres',
-	ssl: false
-});
 
 app.get('/users', function(req,res){
 	pool.query('SELECT * FROM wearshare.users').then(function(result){
@@ -85,10 +77,10 @@ app.post('/users/:user_id/articles', function(req, res){
 	})
 });
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
 app.listen(port, function () {
   console.log('Server is now running on ' + port);
 });
 
-
 // somewhat1255
+

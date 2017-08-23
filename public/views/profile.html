@@ -15,8 +15,15 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="content" ng-switch on="selection">
+	
+	<div id="view-panel">
+		<div class="outfit" ng-repeat="outfit in outfits">
+			<h6>{{outfit.outfit_name}}</h6>
+			<h6>{{outfit.outfit_desc}}</h6>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+	</div>	
+<!-- 	<div class="content" ng-switch on="selection">
 	    <div ng-switch-when="1" >
 	        <ng-include src="'views/wardrobe.html'"></ng-include>
 	    </div>
@@ -26,7 +33,7 @@
 	    <div ng-switch-when="3">
 	        <ng-include src="'views/forms.html'"></ng-include>
 	    </div>
-	</div>
+	</div> -->
 </div>
 
 

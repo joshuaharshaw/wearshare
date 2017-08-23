@@ -1,10 +1,11 @@
 <div class="form-container">
-      <form name="addForm"ng-submit>
+      <form name="addForm" ng-submit="postArticle()">
         <h2>Add an item to your closet!</h2>
         <label>Step 1: Choose a photo</label>
-        <input type="file" name="picture" id ="file">
+        <!-- <input type="file" name="picture" id ="file"> -->
+        <input type="text" name="photo" ng-model="article.image_path">
         <label>Step 2: Choose a category</label>
-        <select name="selectlist" id="select">
+        <select name="selectlist" id="select" ng-model="article.article_type">
           <option>pants</option>
           <option>shirt</option>
           <option>dress</option>
@@ -12,8 +13,9 @@
           <option>shoes</option>
         </select>
         <label>Step 3: Name your item:</label>
-        <input type="text" name="picture" id ="item-name" placeholder="Fav pants">
-        <button type ="submit"class="">Add to closet</button>
+        <input type="text" name="picture" id ="item-name" placeholder="Fav pants" ng-model="article.article_name">
+        <input type="textarea" name="desc" ng-model="article.article_desc">
+        <button type ="submit" class="">Add to closet</button>
       </form>
     </div>
     <div class="form-container">

@@ -87,14 +87,13 @@ app.post('/users', function(req,res){
 
 app.post('/users/:user_id/articles', function(req, res){
 	var sql ='INSERT INTO articles (user_id, image_path, article_type, article_desc, article_name) ' 
-		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text, $6::text)';
+		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text)';
 	var values = [ req.params.user_id, req.body.image_path, req.body.article_type, req.body.article_desc, req.body.article_name ];
 	pool.query(sql, values).then(function(result){
-		res.status(201).send("result.rows");
+		res.status(201).send("Article Added!");
 	}).catch(function(err){
 		console.log(err);
-		res.status(500);
-		res.send("server error");
+		res.status(500).send("server error");
 	})
 });
 

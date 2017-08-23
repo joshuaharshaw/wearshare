@@ -12,4 +12,10 @@ app.service("profileService" , function ($http) {
 			return response.data;
 		});
 	};
+
+	this.postArticle = function (article) {
+		return $http.post('/users/1/articles', article).then(function (response) {
+			return response;
+		});
+	};
 });

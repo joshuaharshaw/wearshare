@@ -3,6 +3,11 @@ var app = angular.module("outfitApp");
 app.controller("wardrobeCtrl", function ($scope, profileService) {
 	$scope.articles;
 	$scope.article = {};
+	$scope.outfit = {
+		topArticle : null,
+		bottomArticle : null,
+		shoes : null
+	};
 
 	$scope.getArticles = function () {
 		$scope.selection = 1;
@@ -22,8 +27,20 @@ app.controller("wardrobeCtrl", function ($scope, profileService) {
 		console.log(submitted);
 		profileService.postArticle(submitted);
 	};
-});
 
+	$scope.select = function (article) {
+		if (article.article_type === "top") {
+			$scope.outfit.topArticle = article;
+			console.log($scope.outfit.topArticle);
+		} else if (article.article_type === "bottom") {
+			$scope.outfit.bottomArticle = article;
+			console.log($scope.outfit.bottomArticle);
+		} else if (article.article_type === "shoes") {
+			$scope.outfit.shoes = article;
+			console.log($scope.outfit.shoes);
+		}
+	};
+});
 
 app.controller("outfitCtrl", function ($scope, profileService) {
 	$scope.outfits;

@@ -2,8 +2,9 @@
 <a href="#!/profile/outfits"><button ng-click="getOutfits()">My Outfits</button></a>
 
 <div id="item-panel">
-	<div class="clothe" ng-repeat="article in articles">
+	<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >
 		<img ng-src="{{article.image_path}}">
+		<h6>{{article.article_id}}</h6>
 		<h6>{{article.article_name}}</h6>
 		<h6>{{article.article_type}}</h6>
 		<p>{{article.article_desc}}</p>
@@ -18,7 +19,7 @@
 	    <div ng-switch-when="2">
 	        <!-- <ng-include src="'views/outfits.html'"></ng-include> -->
 	    </div>
-	    <div ng-switch-when="3">
+	    <div ng-switch-when="3
 	        <!-- <ng-include src="'views/forms.html'"></ng-include> -->
 	    </div>
 	</div>

@@ -1,40 +1,16 @@
-<div id="profile" ng-switch on="selection">
-	<div id="ctrl-panel">
-		<div class="left pull-left">
-			<cl-image public-id="d8t7kkbvedmuqeu2oyfx.jpg" ></cl-image>
-			<img src="">
-			<h3>Joshua</h3>
-		</div>
+<div id="ctrl-panel">
+	<div class="left pull-left">
+		<cl-image public-id="d8t7kkbvedmuqeu2oyfx.jpg" ></cl-image>
+		<img src="">
+		<h3>Joshua</h3>
+	</div>
 
-		<div class="right pull-right">
-			<p id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed placerat massa. Cras at blandit nisl, nec finibus mauris. Donec ultrices, enim sed ornare suscipit, neque sapien rhoncus nisi, non efficitur tortor est vitae turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-			<div id="nav-buttons">
-				<button ng-click="getArticles()">My Wardrobe</button>
-				<button ng-click="getOutfits()">My Outfits</button>
-				<button ng-click="switchView(3)">Add/Edit</button>
-			</div>
+	<div class="right pull-right">
+		<p id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed placerat massa. Cras at blandit nisl, nec finibus mauris. Donec ultrices, enim sed ornare suscipit, neque sapien rhoncus nisi, non efficitur tortor est vitae turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+		<div id="nav-buttons">
+			<a href="#!/profile/wardrobe"><button ng-click="getArticles()">My Wardrobe</button></a>
+			<a href="#!/profile/outfits"><button ng-click="getOutfits()">My Outfits</button></a>
+			<button ng-click="switchView(3)">Add/Edit</button>
 		</div>
 	</div>
-	
-	<div id="view-panel">
-		<div class="outfit" ng-repeat="outfit in outfits">
-			<h6>{{outfit.outfit_name}}</h6>
-			<h6>{{outfit.outfit_desc}}</h6>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		</div>
-	</div>	
-<!-- 	<div class="content" ng-switch on="selection">
-	    <div ng-switch-when="1" >
-	        <ng-include src="'views/wardrobe.html'"></ng-include>
-	    </div>
-	    <div ng-switch-when="2">
-	        <ng-include src="'views/outfits.html'"></ng-include>
-	    </div>
-	    <div ng-switch-when="3">
-	        <ng-include src="'views/forms.html'"></ng-include>
-	    </div>
-	</div> -->
 </div>
-
-
-

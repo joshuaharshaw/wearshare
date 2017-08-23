@@ -1,8 +1,25 @@
-<div id="view-panel">
+<a href="#!/profile/wardrobe"><button ng-click="getArticles()">My Wardrobe</button></a>
+<a href="#!/profile/outfits"><button ng-click="getOutfits()">My Outfits</button></a>
+
+<div id="item-panel">
 	<div class="clothe" ng-repeat="article in articles">
 		<img ng-src="{{article.image_path}}">
 		<h6>{{article.article_name}}</h6>
 		<h6>{{article.article_type}}</h6>
 		<p>{{article.article_desc}}</p>
+	</div>
+</div>
+
+<div id="view-panel">
+		<div class="content" ng-switch on="selection">
+	    <div ng-switch-when="1" >
+	        <!-- <ng-include src="'views/wardrobe.html'"></ng-include> -->
+	    </div>
+	    <div ng-switch-when="2">
+	        <!-- <ng-include src="'views/outfits.html'"></ng-include> -->
+	    </div>
+	    <div ng-switch-when="3">
+	        <!-- <ng-include src="'views/forms.html'"></ng-include> -->
+	    </div>
 	</div>
 </div>

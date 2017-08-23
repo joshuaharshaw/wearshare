@@ -1,12 +1,8 @@
 var app = angular.module("outfitApp");
 
-app.controller("profileCtrl", function ($scope, profileService) {
+app.controller("wardrobeCtrl", function ($scope, profileService) {
 	$scope.articles;
-	$scope.outfits;
-	$scope.selection=1;
-
 	$scope.article = {};
-	$scope.outfit ={};
 
 	$scope.getArticles = function () {
 		$scope.selection = 1;
@@ -21,20 +17,6 @@ app.controller("profileCtrl", function ($scope, profileService) {
 
 	$scope.getArticles();
 
-	$scope.getOutfits = function () {
-
-		$scope.selection = 2;
-		var promise = profileService.getOutfits();
-
-		promise.then(function (outfits) {
-			$scope.outfits = outfits;
-		});
-	};
-
-	$scope.switchView = function(number) {
-		$scope.selection = number;
-	};
-
 	$scope.postArticle = function () {
 		var submitted = JSON.stringify($scope.article);
 		console.log(submitted);
@@ -43,6 +25,18 @@ app.controller("profileCtrl", function ($scope, profileService) {
 });
 
 
-app.controller("outfitCtrl". function ($scope, profileService) {
+app.controller("outfitCtrl", function ($scope, profileService) {
+	$scope.outfits;
+	$scope.outfit ={};
 
+	$scope.getOutfits = function () {
+		$scope.selection = 2;
+		var promise = profileService.getOutfits();
+
+		promise.then(function (outfits) {
+			$scope.outfits = outfits;
+		});
+	};
+
+	$scope.getOutfits();
 });

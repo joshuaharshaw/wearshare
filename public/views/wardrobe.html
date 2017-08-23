@@ -11,15 +11,15 @@
 </div>
 
 <div id="view-panel">
-		<div class="content" ng-switch on="selection">
+	<div class="content" ng-switch="avswitch">
 	    <div ng-switch-when="1" >
-	        <!-- <ng-include src="'views/wardrobe.html'"></ng-include> -->
+	        <ng-include src="'views/av-message.html'"></ng-include>
 	    </div>
 	    <div ng-switch-when="2">
-	        <!-- <ng-include src="'views/outfits.html'"></ng-include> -->
+	        <ng-include src="'views/outfits.html'"></ng-include>
 	    </div>
 	    <div ng-switch-when="3">
-	        <!-- <ng-include src="'views/forms.html'"></ng-include> -->
+	        <ng-include src="'views/av-form.html'"></ng-include>
 	    </div>
 	</div>
 </div>

@@ -90,6 +90,7 @@ li {
 
 /*Viewport-Clothing Items*/
 #item-panel {
+	float: left;
 	width:60%; 
 	min-height: 500px;
 	background-color: rgba(255,255,255, 1);
@@ -117,6 +118,15 @@ li {
 	width: 35%;
 	height: 500px;
 	background-color: white;
+	padding: 15px;
+}
+
+#outline {
+	height: 468px;
+	border: 5px dashed gray;
+	border-radius: 8px;
+	text-align: center;
+	padding: 100px 10px;
 }
 
 /*Home view */

@@ -3,15 +3,14 @@ var app = angular.module("outfitApp");
 app.controller("wardrobeCtrl", function ($scope, profileService) {
 	$scope.articles;
 	$scope.article = {};
+	$scope.avswitch = 1;
 
 	$scope.getArticles = function () {
-		$scope.selection = 1;
 		var promise = profileService.getArticles();
 
 		promise.then(function (articles) {
 			$scope.articles = articles;
 			console.log($scope.articles);
-
 		});
 	};
 
@@ -24,13 +23,11 @@ app.controller("wardrobeCtrl", function ($scope, profileService) {
 	};
 });
 
-
 app.controller("outfitCtrl", function ($scope, profileService) {
 	$scope.outfits;
 	$scope.outfit ={};
 
 	$scope.getOutfits = function () {
-		$scope.selection = 2;
 		var promise = profileService.getOutfits();
 
 		promise.then(function (outfits) {

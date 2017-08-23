@@ -179,3 +179,7 @@ div#home{
   width:30%;
   padding-left: 10px;
 }
+
+.selected {
+	opacity: .5;
+}

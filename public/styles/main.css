@@ -36,7 +36,11 @@ div#nav {
 	border:1px solid black;
 	margin:10px auto;
 }
-
+.outfit-img {
+	vertical-align: middle;
+    width: 100px;
+    display: block;
+}
 ul {
 	list-style: none;
 	padding: 0;

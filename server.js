@@ -97,6 +97,18 @@ app.post('/users/:user_id/articles', function(req, res){
 	})
 });
 
+app.post('/users/:user_id/outfits', function(req,res){
+	var sql ='INSERT INTO outfits (user_id, top_id, bottom_id, shoe_id) ' 
+		+ 'VALUES ($1::int, $2::int, $3::int, $4::int)';
+	var values = [ req.params.user_id, req.body.top_id, req.body.bottom_id, req.body.shoe_id ];
+	pool.query(sql, values).then(function(result){
+		res.status(201).send("Outfit Added!");
+	}).catch(function(err){
+		console.log(err);
+		res.status(500).send("server error");
+	})
+});
+
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
   console.log('Server is now running on ' + port);

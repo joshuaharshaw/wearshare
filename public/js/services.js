@@ -18,4 +18,10 @@ app.service("profileService" , function ($http) {
 			return response;
 		});
 	};
+
+	this.postOutfit = function (outfit) {
+		return $http.post('/users/1/outfits', outfit).then(function (response){
+			return response;
+		});
+	};
 });

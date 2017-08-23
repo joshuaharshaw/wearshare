@@ -26,7 +26,33 @@ app.controller("wardrobeCtrl", function ($scope, profileService) {
 		console.log(submitted);
 		profileService.postArticle(submitted);
 	};
+});
 
+app.controller("outfitCtrl", function ($scope, profileService) {
+	$scope.outfits;
+	$scope.outfit ={};
+	$scope.articles;
+
+	$scope.getArticles = function () {
+		var promise = profileService.getArticles();
+
+		promise.then(function (articles) {
+			$scope.articles = articles;
+			console.log($scope.articles);
+		});
+	};
+
+	$scope.getOutfits = function () {
+		var promise = profileService.getOutfits();
+
+		promise.then(function (outfits) {
+			$scope.outfits = outfits;
+			console.log($scope.outfits);
+		});
+
+		$scope.findArticles();
+	};
+	
 	$scope.select = function (article) {
 		if (article.article_type === "top") {
 			$scope.outfit.topArticle = article;
@@ -39,19 +65,22 @@ app.controller("wardrobeCtrl", function ($scope, profileService) {
 			console.log($scope.outfit.shoes);
 		}
 	};
-});
 
-app.controller("outfitCtrl", function ($scope, profileService) {
-	$scope.outfits;
-	$scope.outfit ={};
+	$scope.postOutfit = function () {
+		console.log($scope.outfit);
+		var outfit = {
+			"top_id":$scope.outfit.topArticle.article_id,
+			"bottom_id":$scope.outfit.bottomArticle.article_id,
+			"shoe_id":$scope.outfit.shoes.article_id
+		};
 
-	$scope.getOutfits = function () {
-		var promise = profileService.getOutfits();
+		profileService.postOutfit(outfit);
+	}
 
-		promise.then(function (outfits) {
-			$scope.outfits = outfits;
-		});
+	$scope.findArticles() {
+
 	};
 
 	$scope.getOutfits();
+	$scope.getArticles();
 });

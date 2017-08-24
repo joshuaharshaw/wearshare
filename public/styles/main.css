@@ -95,7 +95,7 @@ li {
 /*Viewport-Clothing Items*/
 #item-panel {
 	float: left;
-	width:60%; 
+	width:60%;
 	min-height: 500px;
 	background-color: rgba(255,255,255, 1);
 	margin: 10px 20px;
@@ -148,35 +148,42 @@ div#home{
 	font-size: 60px;
 }
 
-.home-item{
-	background-color:white;
-	width:100%;
-	height:auto;
-	padding:10px;
-	border:10px;
-	padding: 20px 0;
-	background-color: white;
-	margin-top: 15px;
+.home-container{
+background-color: white;
+width: 100%;
+height: auto;
+border: 10px;
+background-color:white;
+}
+.box-container{
+  margin: 50px auto;
+  padding: 10px;
 }
 
 .box-item{
-	list-style: none;
-	display: inline-block;
-	padding: 5px;
-	width:200px;
-	height: 180px;
-	margin: 5px;
-	background: #fefefe;
-	border: 2px solid  #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	line-height: 150px;
-	color: white;
-	font-weight: bold;
-	font-size: 3em;
-	text-align: center;
-	margin: 0 5px;
-	/*padding: 15px;*/
-	padding-bottom: 10px;
+background: #fefefe;
+border: 2px solid #fcfcfc;
+box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+margin: 0 2px 15px;
+/* padding: 15px; */
+padding-bottom: 10px;
+display: inline-block;
+width: 200px;
+height: auto;
+}
+
+.box-item img{
+  width: 50%;
+  height: auto;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 15px;
+	margin-bottom: 5px;
+}
+
+figcaption {
+  font-size: .9rem;
+	color: #444;
+  line-height: 1.5;
 }
 
 /*form styles*/

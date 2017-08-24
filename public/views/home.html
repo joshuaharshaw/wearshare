@@ -3,37 +3,54 @@
 <div class="home-container">
   <div class= "box-container">
     <p>Most Starred</p>
-    <figure class="box-item">
-      <img src="images/naomi-pants1.jpg">
-      <figcaption>Naomi's pants</figcaption>
-    </figure>
-    <figure class="box-item">
-      <img src="images/naomi-pants2.jpg">
-      <figcaption>Naomi's pants</figcaption>
-    </figure>
-    <figure class="box-item"></figure>
-    <figure class="box-item"></figure>
-    <figure class="box-item"></figure>
+    <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'outfit_id'">
+      <div class="img-buffer">
+        <img ng-src="{{outfit.top.image_path}}">
+        <img ng-src="{{outfit.bottom.image_path}}">
+        <img ng-src="{{outfit.shoe.image_path}}">
+        <button ng-click="addRating()">Add Rating</button>
+      </div>
+
+      <h6>{{outfit.outfit_name}}</h6>
+      <p>{{outfit.outfit_desc}}</p>
+      <p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
+    </div>
+
     </div>
   </div>
   <div class="home-container">
     <div class="box-container">
       <p>Trending</p>
-      <figure class="box-item">
-        <img src="images/naomi-shirt1.jpg">
-        <figcaption>Party like its 1999</figcaption>
-      </figure>
+      <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
+  			<div class="img-buffer">
+  				<img ng-src="{{outfit.top.image_path}}">
+  				<img ng-src="{{outfit.bottom.image_path}}">
+  				<img ng-src="{{outfit.shoe.image_path}}">
+  				<button ng-click="addRating()">Add Rating</button>
+  			</div>
+
+  			<h6>{{outfit.outfit_name}}</h6>
+  			<p>{{outfit.outfit_desc}}</p>
+  			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
+  		</div>
     </div>
   </div>
+
   <div class="home-container">
     <div class="box-container">
       <p>My Ratings</p>
-      <figure class="box-item" ng-repeat="outfit in outfits |limitTo:-5" >
-        <img ng-src="{{outfit.top.image_path}}">
-				<img ng-src="{{outfit.bottom.image_path}}">
-				<img ng-src="{{outfit.shoe.image_path}}">
-        <figcaption>{{outfit.outfit_name}}</figcaption>
-      </figure>
-      </div>
-</div>
+      <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
+  			<div class="img-buffer">
+  				<img ng-src="{{outfit.top.image_path}}">
+  				<img ng-src="{{outfit.bottom.image_path}}">
+  				<img ng-src="{{outfit.shoe.image_path}}">
+  				<button ng-click="addRating()">Add Rating</button>
+  			</div>
+
+  			<h6>{{outfit.outfit_name}}</h6>
+  			<p>{{outfit.outfit_desc}}</p>
+  			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
+  		</div>
+    </div>
+  </div>
 </div>

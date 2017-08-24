@@ -25,8 +25,8 @@ app.service("profileService" , function ($http) {
 		});
 	};
 
-	this.addRating = function (outfit) {
-		return $http.put('users/1/outfits' , outfit).then(function (response){
+	this.addRating = function (currentOutfit, score, rating) {
+		return $http.post('/outfits/' + currentOutfit + '/5' , rating).then(function (response){
 			return response;
 		});
 	}

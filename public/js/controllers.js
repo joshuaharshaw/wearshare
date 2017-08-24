@@ -89,8 +89,10 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 		});
 
 		$scope.addRating = function () {
-			var promise = profileService.addRating();
-				return promise;
+			console.log(this);
+			var currentOutfit = this.outfit.outfit_id;
+			var score = this.value;
+			profileService.addRating(currentOutfit, score);
 		}
 
 		console.log(outfits);

@@ -26,8 +26,14 @@ app.service("profileService" , function ($http) {
 	};
 
 	this.addRating = function (currentOutfit, score, rating) {
-		return $http.post('/outfits/' + currentOutfit + '/5' , rating).then(function (response){
-			return response;
+        return $http.post('/outfits/' + currentOutfit + '/5' , rating).then(function (response){
+            return response;
+        });
+    }
+
+	this.getUsers = function () {
+		return $http.get('/users').then(function (response) {
+			return response.data;
 		});
-	}
+	};
 });

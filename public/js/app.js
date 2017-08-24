@@ -3,7 +3,8 @@ var app = angular.module("outfitApp", ["ngRoute"]);
 app.config(function($routeProvider) {
 
 	$routeProvider.when("/home",{
-		templateUrl:"views/home.html"
+		templateUrl:"views/home.html",
+		controller:"homeCtrl"
 	});
 
 	$routeProvider.when("/profile", {
@@ -14,7 +15,7 @@ app.config(function($routeProvider) {
 		templateUrl:"views/outfits.html",
 		controller:"outfitCtrl"
 	});
-	
+
 	$routeProvider.when("/profile/wardrobe", {
 		templateUrl:"views/wardrobe.html",
 		controller:"wardrobeCtrl"

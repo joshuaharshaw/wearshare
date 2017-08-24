@@ -138,6 +138,8 @@ li {
 	float: left;
 	width: 150px;
 	margin: 10px;
+	padding:10px;
+	background-color: rgba(	128, 128, 128, 0.3);
 }
 
 .img-buffer {

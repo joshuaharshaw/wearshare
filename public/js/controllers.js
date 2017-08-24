@@ -32,6 +32,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 	$scope.outfits;
 	$scope.outfit ={};
 	$scope.articles;
+	$scope.rating;
 
 	$scope.getArticles = function () {
 		var promise = profileService.getArticles();
@@ -87,8 +88,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 			});
 		});
 
-		console.log(articles, outfits);
-
+		console.log(outfits);
 		$scope.outfits = outfits;
 	});
 });

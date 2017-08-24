@@ -7,6 +7,10 @@
 	padding: 0px;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
 body {
 	background-color:#8b008b;
 }
@@ -169,6 +173,21 @@ li {
 	left:50px;
 }
 
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
 /*Home view */
 div#home{
 	padding: 10px;
@@ -222,8 +241,14 @@ figcaption {
   line-height: 1.5;
 }
 
+.user {
+	float: left;
+	width: 150px;
+	min-height: 75px;
+}
+
 /*form styles*/
-#file, #select, #item-name, #item-top, #item-bottom, #item-shoe{
+#file, #select, #item-name, #item-top, #item-bottom, #item-shoe {
   display: block;
   width: 200px;
   height: 20px;

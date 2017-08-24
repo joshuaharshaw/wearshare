@@ -34,6 +34,18 @@
 				<img ng-src="{{outfit.shoe.image_path}}">
         <figcaption>{{outfit.outfit_name}}</figcaption>
       </figure>
+    </div>
+  </div>
+
+  <div class="home-container">
+    <div class="box-container clearfix">
+      <h3>Other Users</h3>
+
+      <div class="user" ng-repeat="user in users">
+        <img ng-src="{{user.thumbnail}}">
+        <h4>{{user.user_name}}</h4>
+        <p>{{user.user_desc}}</p>
       </div>
-</div>
+    </div>
+  </div>
 </div>

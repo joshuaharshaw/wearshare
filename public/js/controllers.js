@@ -89,23 +89,27 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 		});
 
 		$scope.addRating = function () {
-			var promise = profileService.addRating();
-				return promise;
-		}
+            console.log(this);
+            var currentOutfit = this.outfit.outfit_id;
+            var score = this.value;
+            profileService.addRating(currentOutfit, score);
+        }
 
 		console.log(outfits);
 		$scope.outfits = outfits;
 	});
 });
 
+app.controller("homeCtrl", function ($scope, profileService, $routeParams) {
 
+	$scope.getUsers = function () {
+		var users = profileService.getUsers();
 
+		users.then(function (users) {
+			$scope.users = users;
+			console.log($scope.users);
+		});
+	};
 
-// score: 
-// {
-// 	"total_score" : 5555,
-// 	"total_votes":1111
-// }
-
-
-// {{score.total_score/score.total_votes}}
+	$scope.getUsers();
+});

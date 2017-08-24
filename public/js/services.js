@@ -24,4 +24,10 @@ app.service("profileService" , function ($http) {
 			return response;
 		});
 	};
+
+	this.addRating = function (outfit) {
+		return $http.put('users/1/outfits' , outfit).then(function (response){
+			return response;
+		});
+	}
 });

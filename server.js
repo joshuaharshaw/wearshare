@@ -109,6 +109,18 @@ app.post('/users/:user_id/outfits', function(req,res){
 	})
 });
 
+app.put('/users/:user_id/outfits', function(req,res){
+	var sql ='UPDATE outfits SET total_votes = total_votes + 1 WHERE user_id=$1::int;'
+	var values = [ req.params.user_id ];
+	pool.query(sql, values).then(function(result){
+		res.status(201).send("Rating");
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
   console.log('Server is now running on ' + port);

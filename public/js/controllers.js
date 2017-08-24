@@ -88,6 +88,11 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 			});
 		});
 
+		$scope.addRating = function () {
+			var promise = profileService.addRating();
+				return promise;
+		}
+
 		console.log(outfits);
 		$scope.outfits = outfits;
 	});

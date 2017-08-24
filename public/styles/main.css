@@ -133,6 +133,39 @@ li {
 	padding: 100px 10px;
 }
 
+.outfit {
+	position: relative;
+	float: left;
+	width: 150px;
+	margin: 10px;
+}
+
+.img-buffer {
+	height: 150px;
+}
+
+.outfit img {
+	width: 100px;
+}
+
+.outfit img:nth-child(1) {
+	width: 100px;
+}
+
+.outfit img:nth-child(2) {
+	width: 100px;
+	position: absolute;
+	left: 25px;
+	top: 10px;
+}
+
+.outfit img:nth-child(3) {
+	width: 100px;
+	position: absolute;
+	top: 20px;
+	left:50px;
+}
+
 /*Home view */
 div#home{
 	padding: 10px;

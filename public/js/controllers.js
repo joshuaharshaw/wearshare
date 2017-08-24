@@ -37,22 +37,12 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 		var promise = profileService.getArticles();
 
 		return promise;
-
-		// promise.then(function (articles) {
-		// 	// $scope.articles = articles;
-		// 	return articles;
-		// });
 	};
 
 	$scope.getOutfits = function () {
 		var promise = profileService.getOutfits();
 
 		return promise;
-
-		// promise.then(function (outfits) {
-		// 	// $scope.outfits = outfits;
-		// 	return promise;
-		// });
 	};
 	
 	$scope.select = function (article) {
@@ -95,10 +85,22 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 			outfit.shoe = articles.find(function (article) {
 				return article.article_id === outfit.shoe_id;
 			});
-
-			console.log(outfit);
 		});
 
 		console.log(articles, outfits);
+
+		$scope.outfits = outfits;
 	});
 });
+
+
+
+
+// score: 
+// {
+// 	"total_score" : 5555,
+// 	"total_votes":1111
+// }
+
+
+// {{score.total_score/score.total_votes}}

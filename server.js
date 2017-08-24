@@ -115,4 +115,5 @@ app.listen(port, function () {
 });
 
 // somewhat1255
+// taskkill /f /im node.exe
 

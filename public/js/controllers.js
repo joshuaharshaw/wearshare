@@ -1,6 +1,6 @@
 var app = angular.module("outfitApp");
 
-app.controller("wardrobeCtrl", function ($scope, profileService) {
+app.controller("wardrobeCtrl", function ($scope, profileService, $q) {
 	$scope.articles;
 	$scope.article = {};
 	$scope.avswitch = 1;
@@ -28,7 +28,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService) {
 	};
 });
 
-app.controller("outfitCtrl", function ($scope, profileService) {
+app.controller("outfitCtrl", function ($scope, profileService, $q) {
 	$scope.outfits;
 	$scope.outfit ={};
 	$scope.articles;
@@ -36,21 +36,23 @@ app.controller("outfitCtrl", function ($scope, profileService) {
 	$scope.getArticles = function () {
 		var promise = profileService.getArticles();
 
-		promise.then(function (articles) {
-			$scope.articles = articles;
-			console.log($scope.articles);
-		});
+		return promise;
+
+		// promise.then(function (articles) {
+		// 	// $scope.articles = articles;
+		// 	return articles;
+		// });
 	};
 
 	$scope.getOutfits = function () {
 		var promise = profileService.getOutfits();
 
-		promise.then(function (outfits) {
-			$scope.outfits = outfits;
-			console.log($scope.outfits);
-		});
+		return promise;
 
-		$scope.findArticles();
+		// promise.then(function (outfits) {
+		// 	// $scope.outfits = outfits;
+		// 	return promise;
+		// });
 	};
 	
 	$scope.select = function (article) {
@@ -77,10 +79,26 @@ app.controller("outfitCtrl", function ($scope, profileService) {
 		profileService.postOutfit(outfit);
 	}
 
-	$scope.findArticles() {
+	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {
+		var outfits = response[0];
+		var articles = response[1];
 
-	};
+		outfits.forEach(function (outfit) {
+			outfit.top = articles.find(function (article) {
+				return article.article_id === outfit.top_id;
+			});
 
-	$scope.getOutfits();
-	$scope.getArticles();
+			outfit.bottom = articles.find(function (article) {
+				return article.article_id === outfit.bottom_id;
+			});
+
+			outfit.shoe = articles.find(function (article) {
+				return article.article_id === outfit.shoe_id;
+			});
+
+			console.log(outfit);
+		});
+
+		console.log(articles, outfits);
+	});
 });

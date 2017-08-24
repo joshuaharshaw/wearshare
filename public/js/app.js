@@ -4,7 +4,7 @@ app.config(function($routeProvider) {
 
 	$routeProvider.when("/home",{
 		templateUrl:"views/home.html",
-		controller:"outfitCtrl"
+		controller:"homeCtrl"
 	});
 
 	$routeProvider.when("/profile", {

@@ -159,6 +159,16 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $q) {
 			});
 		});
 
+		$scope.getTop = function () {
+			var promise = profileService.getTop();
+
+			promise.then(function (top) {
+				$scope.top = top;
+				console.log($scope.top);
+			});
+		};
+$scope.getTop();
+
 		$scope.addRating = function () {
             console.log(this);
             var currentOutfit = this.outfit.outfit_id;
@@ -180,4 +190,5 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $q) {
 	};
 
 	$scope.getUsers();
+
 });

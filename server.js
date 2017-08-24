@@ -26,7 +26,7 @@ app.get('/users', function(req,res){
 });
 
 app.get('/users/:user_id', function(req,res){
-	var sql ='SELECT * FROM users WHERE user_id=$1::int;' 
+	var sql ='SELECT * FROM users WHERE user_id=$1::int;'
 	var values = [ req.params.user_id ];
 	pool.query(sql, values).then(function(result){
 		res.status(201).send(result.rows);
@@ -48,7 +48,7 @@ app.get('users/outfits', function(req,res){
 });
 
 app.get('/users/:user_id/outfits', function(req,res){
-	var sql ='SELECT * FROM outfits WHERE user_id=$1::int;'; 
+	var sql ='SELECT * FROM outfits WHERE user_id=$1::int;';
 	var values = [ req.params.user_id ];
 	pool.query(sql, values).then(function(result){
 		res.status(201).send(result.rows);
@@ -59,8 +59,18 @@ app.get('/users/:user_id/outfits', function(req,res){
 	})
 });
 
+app.get('/outfits/top', function(req,res){
+	pool.query('SELECT * FROM public.outfits order by total_score desc limit 2').then(function(result){
+		res.status(201).send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
 app.get('/users/:user_id/articles', function(req,res){
-	var sql ='SELECT * FROM articles WHERE user_id=$1::int;'; 
+	var sql ='SELECT * FROM articles WHERE user_id=$1::int;';
 	var values = [ req.params.user_id ];
 	pool.query(sql, values).then(function(result){
 		res.status(201).send(result.rows);
@@ -72,7 +82,7 @@ app.get('/users/:user_id/articles', function(req,res){
 });
 
 app.post('/users', function(req,res){
-	var sql ='INSERT INTO users (user_name, password) ' 
+	var sql ='INSERT INTO users (user_name, password) '
 		+ 'VALUES ($1::text, $2::text)';
 	var values = [ req.body.user_name, req.body.password ];
 	pool.query(sql, values).then(function(result){
@@ -86,7 +96,7 @@ app.post('/users', function(req,res){
 
 
 app.post('/users/:user_id/articles', function(req, res){
-	var sql ='INSERT INTO articles (user_id, image_path, article_type, article_desc, article_name) ' 
+	var sql ='INSERT INTO articles (user_id, image_path, article_type, article_desc, article_name) '
 		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text)';
 	var values = [ req.params.user_id, req.body.image_path, req.body.article_type, req.body.article_desc, req.body.article_name ];
 	pool.query(sql, values).then(function(result){
@@ -98,7 +108,7 @@ app.post('/users/:user_id/articles', function(req, res){
 });
 
 app.post('/users/:user_id/outfits', function(req,res){
-	var sql ='INSERT INTO outfits (user_id, top_id, bottom_id, shoe_id) ' 
+	var sql ='INSERT INTO outfits (user_id, top_id, bottom_id, shoe_id) '
 		+ 'VALUES ($1::int, $2::int, $3::int, $4::int)';
 	var values = [ req.params.user_id, req.body.top_id, req.body.bottom_id, req.body.shoe_id ];
 	pool.query(sql, values).then(function(result){
@@ -128,4 +138,3 @@ app.listen(port, function () {
 
 // somewhat1255
 // taskkill /f /im node.exe
-

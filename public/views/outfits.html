@@ -27,7 +27,7 @@
 			
 			<h6>{{outfit.outfit_name}}</h6>
 			<p>{{outfit.outfit_desc}}</p>
-			<p>Average Rating: {{outfit.total_score ? outfit.total_score/outfit.total_votes:0}} </p>
+			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
 		</div>
 	</div>	
 

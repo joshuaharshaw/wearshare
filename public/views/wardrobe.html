@@ -1,5 +1,7 @@
-<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
-<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>
+<div class="all-links">
+	<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
+	<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>	
+</div>
 
 <div id="item-panel">
 	<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >

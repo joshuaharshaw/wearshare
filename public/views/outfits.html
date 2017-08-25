@@ -1,8 +1,10 @@
-<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
-<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>
+<div class="all-links">
+	<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
+	<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>	
+</div>
 
 <div id="profile" ng-switch on="selection">
-	<div id="view-panel">
+	<div id="view-panel" ng-if="homeOrNo">
 		<div class="content" ng-switch="avswitch">
 		    <div ng-switch-when="1" >
 		        <ng-include src="'views/av-message.html'"></ng-include>
@@ -17,6 +19,7 @@
 	</div>
 
 	<div id="item-panel">
+		<h3>Outfits</h3>
 		<div class="outfit" ng-repeat="outfit in outfits">	
 			<div class="img-buffer">
 				<img ng-src="{{outfit.top.image_path}}">
@@ -34,6 +37,7 @@
 	</div>	
 
 	<div id="item-panel">
+		<h3>Wardrobe</h3>
 		<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >
 			<img ng-src="{{article.image_path}}">
 			<h6>{{article.article_id}}</h6>

@@ -40,11 +40,13 @@ div#nav {
 	border:1px solid black;
 	margin:10px auto;
 }
+
 .outfit-img {
-	vertical-align: middle;
-    width: 100px;
+    width: 125px;
     display: block;
+    margin: 5px auto;
 }
+
 ul {
 	list-style: none;
 	padding: 0;
@@ -151,6 +153,10 @@ li {
 	margin-bottom: 10px;
 }
 
+.outfit-form {
+	text-align: center;
+}
+
 .outfit img {
 	width: 100px;
 }
@@ -188,6 +194,7 @@ li {
    content: "\2605";
    position: absolute;
 }
+
 /*Home view */
 div#home{
 	padding: 10px;

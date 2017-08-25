@@ -3,12 +3,13 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
 var cloudinary = require('cloudinary');
 var pool = require("./pg-connection-pool");
+var formidable = require('formidable');
 
-cloudinary.config({
-	cloud_name:"dr1gz6f3y",
-	api_key:"647715557514671",
-	api_secret:"gqj5eFiuKTQ-JkKJCB1UIUo5usI"
-});
+// cloudinary.config({
+// 	cloud_name:"dr1gz6f3y",
+// 	api_key:"647715557514671",
+// 	api_secret:"gqj5eFiuKTQ-JkKJCB1UIUo5usI"
+// });
 
 var app = express();
 
@@ -107,9 +108,9 @@ app.post('/users/:user_id/articles', function(req, res){
 });
 
 app.post('/users/:user_id/outfits', function(req,res){
-	var sql ='INSERT INTO outfits (user_id, top_id, bottom_id, shoe_id) '
-		+ 'VALUES ($1::int, $2::int, $3::int, $4::int)';
-	var values = [ req.params.user_id, req.body.top_id, req.body.bottom_id, req.body.shoe_id ];
+	var sql ='INSERT INTO outfits (user_id, top_id, bottom_id, shoe_id, outfit_name) '
+		+ 'VALUES ($1::int, $2::int, $3::int, $4::int, $5::text)';
+	var values = [ req.params.user_id, req.body.top_id, req.body.bottom_id, req.body.shoe_id, req.body.outfit_name ];
 	pool.query(sql, values).then(function(result){
 		res.status(201).send("Outfit Added!");
 	}).catch(function(err){

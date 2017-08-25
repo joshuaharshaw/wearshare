@@ -1,6 +1,5 @@
 var app = angular.module("outfitApp");
 
-
 // Controller for Wardrobe Screen
 app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParams) {
 	$scope.articles;
@@ -45,7 +44,9 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) {
 	$scope.outfits;
 	$scope.outfit ={};
+	$scope.outfitName;
 	$scope.id= $routeParams.user_id || 1;
+	$scope.homeOrNo = 1;
 	$scope.articles;
 	$scope.rating;
 	$scope.procOutfit='#!/profile/outfits';
@@ -54,6 +55,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 	$scope.avswitch = 3;
 
 	if ($routeParams.user_id) {
+		$scope.homeOrNo = 0;
 		$scope.avswitch = 1;
 		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
 		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
@@ -89,7 +91,8 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 		var outfit = {
 			"top_id":$scope.outfit.topArticle.article_id,
 			"bottom_id":$scope.outfit.bottomArticle.article_id,
-			"shoe_id":$scope.outfit.shoes.article_id
+			"shoe_id":$scope.outfit.shoes.article_id,
+			"outfit_name":$scope.outfitName
 		};
 
 		profileService.postOutfit(outfit);
@@ -114,6 +117,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 		});
 		console.log(outfits);
 		$scope.outfits = outfits;
+		$scope.articles = articles;
 	});
 	
 	$scope.addRating = function () {
@@ -126,20 +130,21 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 });
 
 // Controller for Home Screen
-app.controller("homeCtrl", function ($scope, profileService, $routeParams, $location) {
+app.controller("homeCtrl", function ($scope, profileService, $routeParams, $location, $q) {
 	$scope.outfits;
 	$scope.outfit ={};
+	$scope.id= $routeParams.user_id || 1;
 	$scope.articles;
 	$scope.rating;
 
 	$scope.getArticles = function () {
-		var promise = profileService.getArticles();
+		var promise = profileService.getArticles($scope.id);
 
 		return promise;
 	};
 
 	$scope.getOutfits = function () {
-		var promise = profileService.getOutfits();
+		var promise = profileService.getOutfits($scope.id);
 
 		return promise;
 	};

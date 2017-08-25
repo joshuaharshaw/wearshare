@@ -24,6 +24,7 @@ app.service("profileService" , function ($http) {
 			return response;
 		});
 	};
+	
 	this.getTop= function(){
 		return $http.get('/outfits/top').then(function (response) {
 			return response.data;
@@ -42,7 +43,7 @@ app.service("profileService" , function ($http) {
 			return response.data;
 		});
 	};
-	
+
 	this.getUser = function (id) {
 		return $http.get('/users/' + id + 'wardrobe').then(function (response) {
 			return response.data;

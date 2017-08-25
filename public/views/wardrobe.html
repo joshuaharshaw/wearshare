@@ -1,5 +1,5 @@
-<a href="#!/profile/wardrobe"><button ng-click="getArticles()">My Wardrobe</button></a>
-<a href="#!/profile/outfits"><button ng-click="getOutfits()">My Outfits</button></a>
+<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
+<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>
 
 <div id="item-panel">
 	<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >
@@ -11,13 +11,13 @@
 	</div>
 </div>
 
-<div id="view-panel">
+<div id="view-panel" ng-if="homeOrNo">
 	<div class="content" ng-switch="avswitch">
 	    <div ng-switch-when="1" >
 	        <ng-include src="'views/av-message.html'"></ng-include>
 	    </div>
 	    <div ng-switch-when="2">
-	        <ng-include src="'views/av-form.html'"></ng-include>
+	        <ng-include src="'views/av-article.html'"></ng-include>
 	    </div>
 	</div>
 </div>

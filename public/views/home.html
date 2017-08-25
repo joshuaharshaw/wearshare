@@ -41,7 +41,7 @@
     <div class="box-container clearfix">
       <h3>Other Users</h3>
 
-      <div class="user" ng-repeat="user in users">
+      <div class="user" ng-repeat="user in users" ng-click="getUser()">
         <img ng-src="{{user.thumbnail}}">
         <h4>{{user.user_name}}</h4>
         <p>{{user.user_desc}}</p>

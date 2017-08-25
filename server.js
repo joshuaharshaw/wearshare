@@ -34,7 +34,7 @@ app.get('/users/:user_id', function(req,res){
 		console.log(err);
 		res.status(500);
 		res.send("server error");
-	})
+	});
 });
 
 app.get('users/outfits', function(req,res){
@@ -84,7 +84,6 @@ app.post('/users', function(req,res){
 	})
 });
 
-
 app.post('/users/:user_id/articles', function(req, res){
 	var sql ='INSERT INTO articles (user_id, image_path, article_type, article_desc, article_name) ' 
 		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text)';
@@ -128,4 +127,3 @@ app.listen(port, function () {
 
 // somewhat1255
 // taskkill /f /im node.exe
-

@@ -1,17 +1,30 @@
 var app = angular.module("outfitApp");
 
-app.controller("wardrobeCtrl", function ($scope, profileService, $q) {
+
+// Controller for Wardrobe Screen
+app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParams) {
 	$scope.articles;
 	$scope.article = {};
-	$scope.avswitch = 1;
+	$scope.id=$routeParams.user_id || 1;
+	$scope.avswitch = 2;
 	$scope.outfit = {
 		topArticle : null,
 		bottomArticle : null,
 		shoes : null
 	};
+	$scope.homeOrNo = 1;
+	$scope.procOutfit='#!/profile/outfits';
+	$scope.procWardrobe='#!/profile/wardrobe';
+
+	if ($routeParams.user_id) {
+		$scope.homeOrNo = 0;
+		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
+		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
+	}
 
 	$scope.getArticles = function () {
-		var promise = profileService.getArticles();
+
+		var promise = profileService.getArticles($scope.id);
 
 		promise.then(function (articles) {
 			$scope.articles = articles;
@@ -19,29 +32,41 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q) {
 		});
 	};
 
-	$scope.getArticles();
-
 	$scope.postArticle = function () {
 		var submitted = JSON.stringify($scope.article);
 		console.log(submitted);
 		profileService.postArticle(submitted);
 	};
+
+	$scope.getArticles();
 });
 
-app.controller("outfitCtrl", function ($scope, profileService, $q) {
+// Controller for Outfits Screen
+app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) {
 	$scope.outfits;
 	$scope.outfit ={};
+	$scope.id= $routeParams.user_id || 1;
 	$scope.articles;
 	$scope.rating;
+	$scope.procOutfit='#!/profile/outfits';
+	$scope.procWardrobe='#!/profile/wardrobe';
+
+	$scope.avswitch = 3;
+
+	if ($routeParams.user_id) {
+		$scope.avswitch = 1;
+		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
+		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
+	}
 
 	$scope.getArticles = function () {
-		var promise = profileService.getArticles();
+		var promise = profileService.getArticles($scope.id);
 
 		return promise;
 	};
 
 	$scope.getOutfits = function () {
-		var promise = profileService.getOutfits();
+		var promise = profileService.getOutfits($scope.id);
 
 		return promise;
 	};
@@ -68,7 +93,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 		};
 
 		profileService.postOutfit(outfit);
-	}
+	};
 
 	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {
 		var outfits = response[0];
@@ -87,20 +112,21 @@ app.controller("outfitCtrl", function ($scope, profileService, $q) {
 				return article.article_id === outfit.shoe_id;
 			});
 		});
-
-		$scope.addRating = function () {
-            console.log(this);
-            var currentOutfit = this.outfit.outfit_id;
-            var score = this.value;
-            profileService.addRating(currentOutfit, score);
-        }
-
 		console.log(outfits);
 		$scope.outfits = outfits;
 	});
+	
+	$scope.addRating = function () {
+        console.log(this);
+        var currentOutfit = this.outfit.outfit_id;
+        var score = this.value;
+        profileService.addRating(currentOutfit, score);
+    };
+
 });
 
-app.controller("homeCtrl", function ($scope, profileService, $routeParams) {
+// Controller for Home Screen
+app.controller("homeCtrl", function ($scope, profileService, $routeParams, $location) {
 
 	$scope.getUsers = function () {
 		var users = profileService.getUsers();
@@ -110,6 +136,11 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams) {
 			console.log($scope.users);
 		});
 	};
+
+	$scope.getUser = function () {
+		var currentId= this.user.user_id;
+		$location.path('/profile/' + currentId + '/wardrobe');
+ 	};
 
 	$scope.getUsers();
 });

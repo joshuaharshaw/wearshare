@@ -1,5 +1,5 @@
-<a href="#!/profile/wardrobe"><button ng-click="getArticles()">My Wardrobe</button></a>
-<a href="#!/profile/outfits"><button ng-click="getOutfits()">My Outfits</button></a>
+<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
+<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>
 
 <div id="profile" ng-switch on="selection">
 	<div id="view-panel">
@@ -10,11 +10,10 @@
 		    <div ng-switch-when="2">
 		        <ng-include src="'views/av-form.html'"></ng-include>
 		    </div>
+		    <div ng-switch-when="3">
+		        <ng-include src="'views/av-outfit.html'"></ng-include>
+		    </div>
 		</div>
-		<img class="outfit-img" ng-src="{{outfit.topArticle.image_path}}">
-		<img class="outfit-img" ng-src="{{outfit.bottomArticle.image_path}}">
-		<img class="outfit-img" ng-src="{{outfit.shoes.image_path}}">
-		<button ng-click="postOutfit()">Create Your Outfit!</button>
 	</div>
 
 	<div id="item-panel">

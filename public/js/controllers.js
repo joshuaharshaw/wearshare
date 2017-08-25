@@ -5,7 +5,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	$scope.articles;
 	$scope.article = {};
 	$scope.id=$routeParams.user_id || 1;
-	$scope.avswitch = 2;
+	$scope.avswitch = 1;
 	$scope.outfit = {
 		topArticle : null,
 		bottomArticle : null,
@@ -36,6 +36,10 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		console.log(submitted);
 		profileService.postArticle(submitted);
 	};
+
+	$scope.switchView = function (view) {
+		$scope.avswitch = view;
+	}
 
 	$scope.getArticles();
 });

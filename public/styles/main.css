@@ -41,12 +41,6 @@ div#nav {
 	margin:10px auto;
 }
 
-.outfit-img {
-    width: 125px;
-    display: block;
-    margin: 5px auto;
-}
-
 ul {
 	list-style: none;
 	padding: 0;
@@ -59,6 +53,12 @@ ul a {
 
 li {
 	margin: 10px 0px;
+}
+
+.outfit-img {
+    width: 125px;
+    display: block;
+    margin: 5px auto;
 }
 
 #user-img-small {
@@ -98,8 +98,28 @@ li {
 	width: 45%;
 }
 
+/*Top Bar - All Buttons/Links*/
+.all-links {
+
+}
+
+.profile-nav {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.switch-nav {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: gray;
+	margin-top: 20px;
+}
+
 /*Viewport-Clothing Items*/
-#item-panel {
+.item-panel {
 	float: left;
 	width:60%;
 	min-height: 500px;
@@ -108,17 +128,23 @@ li {
 	padding: 10px;
 }
 
+.view-title {
+	text-align: center;
+	margin: 0px auto;
+	font-size: 2em;
+}
+
 .clothe {
 	float:left;
 	background-color: rgba(	128, 128, 128, 0.3);
 	width: 200px;
-	height: 285px;
+	height: 240px;
 	margin: 5px 10px;
 	padding:5px 0px 5px 10px;
 }
 
 .clothe img {
-	width: 180px;
+	width: 90%;
 	height: 180px;
 	background-color: black;
 }

@@ -1,19 +1,19 @@
 <div class="all-links">
-	<a ng-href="{{procWardrobe}}"><button>My Wardrobe</button></a>
-	<a ng-href="{{procOutfit}}"><button>My Outfits</button></a>	
+	<button class="switch-nav" ng-click="switchView(1)">View</button>
+	<a ng-href="{{procOutfit}}"><button class="profile-nav">Out</button></a>	
+	<button class="switch-nav" ng-click="switchView(2)">Uplo</button>
 </div>
 
-<div id="item-panel">
-	<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >
-		<img ng-src="{{article.image_path}}">
-		<h6>{{article.article_id}}</h6>
-		<h6>{{article.article_name}}</h6>
-		<h6>{{article.article_type}}</h6>
-		<p>{{article.article_desc}}</p>
-	</div>
+<div class="item-panel clearfix" ng-switch="avswitch">
+    <div ng-switch-when="1" >
+        <ng-include src="'views/av-view.html'"></ng-include>
+    </div>
+    <div ng-switch-when="2">
+        <ng-include src="'views/av-form.html'"></ng-include>
+    </div>
 </div>
 
-<div id="view-panel" ng-if="homeOrNo">
+<!-- <div class="view-panel" ng-if="homeOrNo">
 	<div class="content" ng-switch="avswitch">
 	    <div ng-switch-when="1" >
 	        <ng-include src="'views/av-message.html'"></ng-include>
@@ -22,4 +22,4 @@
 	        <ng-include src="'views/av-article.html'"></ng-include>
 	    </div>
 	</div>
-</div>
+</div> -->

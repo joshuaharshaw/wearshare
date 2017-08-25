@@ -131,6 +131,9 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
         profileService.addRating(currentOutfit, score);
     };
 
+	$scope.switchView = function (view) {
+		$scope.ovswitch = view;
+	}
 });
 
 // Controller for Home Screen

@@ -24,6 +24,12 @@ app.service("profileService" , function ($http) {
 			return response;
 		});
 	};
+	this.getTop= function(){
+		return $http.get('/outfits/top').then(function (response) {
+			return response.data;
+		});
+
+	};
 
 	this.addRating = function (currentOutfit, score, rating) {
         return $http.post('/outfits/' + currentOutfit + '/5' , rating).then(function (response){
@@ -36,7 +42,7 @@ app.service("profileService" , function ($http) {
 			return response.data;
 		});
 	};
-
+	
 	this.getUser = function (id) {
 		return $http.get('/users/' + id + 'wardrobe').then(function (response) {
 			return response.data;

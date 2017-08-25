@@ -204,16 +204,24 @@ div#home{
 }
 
 .home-container{
-background-color: white;
 width: 100%;
 height: auto;
 border: 10px;
 background-color:white;
 }
+
+
+
 .box-container{
   margin: 50px auto;
   padding: 10px;
 }
+.box-container:after{
+	content: "";
+	clear: both;
+	display: table;
+}
+
 
 .box-item{
 background: #fefefe;
@@ -264,4 +272,20 @@ figcaption {
 
 .selected {
 	opacity: .5;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }

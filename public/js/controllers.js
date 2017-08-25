@@ -57,6 +57,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 	$scope.procWardrobe='#!/profile/wardrobe';
 
 	$scope.avswitch = 3;
+	$scope.ovswitch=1;
 
 	if ($routeParams.user_id) {
 		$scope.homeOrNo = 0;

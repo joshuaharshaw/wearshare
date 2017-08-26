@@ -1,4 +1,5 @@
 <div class="view-title">Your Wardrobe</div>
+<button class="outfit-btn"></button>
 <div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >
 	<img ng-src="{{article.image_path}}">
 	<h6>{{article.article_name}}</h6>

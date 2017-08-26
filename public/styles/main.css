@@ -120,6 +120,7 @@ li {
 
 /*Viewport-Clothing Items*/
 .item-panel {
+	position: relative;
 	float: left;
 	width:60%;
 	min-height: 500px;
@@ -129,8 +130,6 @@ li {
 }
 
 .view-title {
-	text-align: center;
-	margin: 0px auto;
 	font-size: 2em;
 }
 

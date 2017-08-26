@@ -1,4 +1,4 @@
-var app = angular.module("outfitApp", ["ngRoute"]);
+var app = angular.module("outfitApp", ["ngRoute", "angularFileUpload"]);
 
 app.config(function($routeProvider) {
 
@@ -33,11 +33,11 @@ app.config(function($routeProvider) {
 
 	$routeProvider.when("/profile/:user_id/outfits", {
 		templateUrl:"views/outfits.html",
-		controller:"outfitCtrl"
+		controller:"controllers/outfitCtrl"
 	});
 
 	$routeProvider.when("/profile/:user_id/outfits", {
 		templateUrl:"views/outfits.html",
-		controller:"outfitCtrl"
+		controller:"controllers/outfitCtrl"
 	});
 });

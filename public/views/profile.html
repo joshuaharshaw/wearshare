@@ -1,16 +1,19 @@
-<div id="ctrl-panel">
-	<div class="left pull-left">
-		<cl-image public-id="d8t7kkbvedmuqeu2oyfx.jpg" ></cl-image>
-		<img src="">
-		<h3>Joshua</h3>
-	</div>
+<div id="profile-container">
+	<!-- <div class="left pull-left"> -->
+		<div class="profile-user">
+			<img src="images/josh.png">
+			<h3>Joshua</h3>
+		</div>
 
-	<div class="right pull-right">
-		<p id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed placerat massa. Cras at blandit nisl, nec finibus mauris. Donec ultrices, enim sed ornare suscipit, neque sapien rhoncus nisi, non efficitur tortor est vitae turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+	<!-- </div> -->
+
+	<!-- <div class="right pull-right"> -->
+	<div class="profile-info">
+		<p id="bio">Hey, check out my closet and shoot me a star if you like any of my outfits!</p>
 		<div id="nav-buttons">
-			<a href="#!/profile/wardrobe"><button ng-click="getArticles()">My Wardrobe</button></a>
-			<a href="#!/profile/outfits"><button ng-click="getOutfits()">My Outfits</button></a>
-			<button ng-click="switchView(3)">Add/Edit</button>
+			<a href="#!/profile/wardrobe"><button class="profile-btn" ng-click="getArticles()">My Wardrobe</button></a>
+			<a href="#!/profile/outfits"><button class="profile-btn" ng-click="getOutfits()">My Outfits</button></a>
+			<button class="profile-btn" ng-click="switchView(3)">Add/Edit</button>
 		</div>
 	</div>
 </div>

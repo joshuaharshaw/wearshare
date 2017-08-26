@@ -1,11 +1,11 @@
 <div class="all-links">
 	<button class="switch-nav" ng-click="switchView(1)">View</button>
-	<a ng-href="{{procWardrobe}}"><button>War</button></a>	
+	<a ng-href="{{procWardrobe}}"><button class="profile-nav">War</button></a>	
 	<button class="switch-nav" ng-click="switchView(2)">Uplo</button>
 </div>
 
 <div id="profile" ng-switch on="selection">
-	<div id="view-panel" ng-if="homeOrNo">
+<!-- 	<div class="view-panel" ng-if="homeOrNo">
 		<div class="content" ng-switch="avswitch">
 		    <div ng-switch-when="1" >
 		        <ng-include src="'views/av-message.html'"></ng-include>
@@ -17,19 +17,18 @@
 		        <ng-include src="'views/av-view.html'"></ng-include>
 		    </div>
 		</div>
-	</div>
+	</div> -->
 
-	<div id="item-panel" ng-switch="ovswitch">
+	<div class="item-panel clearfix" ng-switch="ovswitch">
 	    <div ng-switch-when="1" >
 	        <ng-include src="'views/ov-view.html'"></ng-include>
 	    </div>
 	    <div ng-switch-when="2">
 	        <ng-include src="'views/ov-form.html'"></ng-include>
 	    </div>
-
 	</div>	
 
-	<div id="item-panel">
+<!-- 	<div id="item-panel">
 		<h3>Wardrobe</h3>
 		<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle_id || article.article_id === outfit.bottomArticle_id || article.article_id === outfit.shoes_id }" >
 			<img ng-src="{{article.image_path}}">
@@ -38,7 +37,7 @@
 			<h6>{{article.article_type}}</h6>
 			<p>{{article.article_desc}}</p>
 		</div>
-	</div>
+	</div> -->
 </div>
 
 

@@ -35,8 +35,16 @@
 
     }
 
+/*Article*/
     .clothe {
     	width: 160px;
     }
+
+
+/*Outfit*/
+	.outfit {
+		width: 160px;
+		padding:5px;
+	}
 
 }

@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
 var cloudinary = require('cloudinary');
 var pool = require("./pg-connection-pool");
+var angular = require('angular');
+
 
 // cloudinary.config({
 // 	cloud_name:"dr1gz6f3y",

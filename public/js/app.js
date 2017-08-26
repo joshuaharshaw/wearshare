@@ -33,11 +33,11 @@ app.config(function($routeProvider) {
 
 	$routeProvider.when("/profile/:user_id/outfits", {
 		templateUrl:"views/outfits.html",
-		controller:"controllers/outfitCtrl"
+		controller:"outfitCtrl"
 	});
 
 	$routeProvider.when("/profile/:user_id/outfits", {
 		templateUrl:"views/outfits.html",
-		controller:"controllers/outfitCtrl"
+		controller:"outfitCtrl"
 	});
 });

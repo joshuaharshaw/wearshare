@@ -14,6 +14,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	$scope.homeOrNo = 1;
 	$scope.procOutfit='#!/profile/outfits';
 	$scope.procWardrobe='#!/profile/wardrobe';
+	$scope.preview=false;
 
 	if ($routeParams.user_id) {
 		$scope.homeOrNo = 0;
@@ -41,9 +42,32 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		$scope.avswitch = view;
 	}
 
-		$scope.uploader = new FileUploader({
-			url: '/api/uploads'
-		});
+	$scope.uploader = new FileUploader({
+		url: '/api/uploads'
+	});
+
+	$scope.togglePreview = function () {
+		$scope.outfit = {
+			topArticle : null,
+			bottomArticle : null,
+			shoes : null
+		};
+
+		if ($scope.preview) {
+			$scope.preview=false;
+		} else $scope.preview=true;
+	}
+
+	$scope.select = function (article) {
+
+		if (article.article_type === "top") {
+			$scope.outfit.topArticle = article;
+		} else if (article.article_type === "bottom") {
+			$scope.outfit.bottomArticle = article;
+		} else if (article.article_type === "shoes") {
+			$scope.outfit.shoes = article;
+		}
+	};
 
 	$scope.getArticles();
 });

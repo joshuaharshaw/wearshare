@@ -12,7 +12,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 	$scope.procOutfit='#!/profile/outfits';
 	$scope.procWardrobe='#!/profile/wardrobe';
 
-	$scope.avswitch = 3;
+	$scope.ovswitch = 1;
 
 	if ($routeParams.user_id) {
 		$scope.homeOrNo = 0;
@@ -91,3 +91,10 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 		$scope.ovswitch = view;
 	}
 });
+
+
+
+
+			outfit.shoe = articles.find(function (article) {
+				return user.user_id === $scope.id;
+			});

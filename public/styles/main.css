@@ -55,12 +55,6 @@ li {
 	margin: 10px 0px;
 }
 
-.outfit-img {
-    width: 125px;
-    display: block;
-    margin: 5px auto;
-}
-
 #user-img-small {
 	width: 100px;
 	height: 100px;
@@ -100,7 +94,7 @@ li {
 
 /*Top Bar - All Buttons/Links*/
 .all-links {
-
+	text-align: center;
 }
 
 .profile-nav {
@@ -119,18 +113,63 @@ li {
 }
 
 /*Viewport-Clothing Items*/
+#outfit-preview {
+	position: relative;
+	min-height: 110px;
+	width: 50%;
+	background-color: white;
+	margin: 25px auto 10px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.outfit-img {
+    width: 150px;
+    height: 150px;
+    margin: 5px 2px;
+    border:3px dashed black;
+	border-radius: 4px;
+}
+
+#out-name {
+	position: absolute;
+	left: 38%;
+	top: -20px;
+}
+
+#make-outfit {
+	margin-left: 10px;
+	height: 50px;
+	position: relative;
+	top: 50px;
+}
+
+#no-preview {
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	background-color: red;
+	width: 30px;
+	height: 30px;
+}
+
 .item-panel {
 	position: relative;
-	float: left;
 	width:60%;
 	min-height: 500px;
 	background-color: rgba(255,255,255, 1);
-	margin: 10px 20px;
+	margin: 10px auto;
 	padding: 10px;
 }
 
 .view-title {
 	font-size: 2em;
+}
+
+.outfit-btn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
 }
 
 .clothe {
@@ -146,6 +185,19 @@ li {
 	width: 90%;
 	height: 180px;
 	background-color: black;
+}
+
+.new-item {
+	border:3px dashed black;
+	border-radius: 8px;
+	text-align:center;
+	height: 230px; 
+	margin-left: -8px;
+	padding-top: 30px;
+}
+
+.new-item p:nth-child(1) {
+	font-size:4em;
 }
 
 #view-panel {
@@ -242,18 +294,16 @@ border: 10px;
 background-color:white;
 }
 
-
-
 .box-container{
   margin: 50px auto;
   padding: 10px;
 }
+
 .box-container:after{
 	content: "";
 	clear: both;
 	display: table;
 }
-
 
 .box-item{
 background: #fefefe;

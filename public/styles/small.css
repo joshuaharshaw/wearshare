@@ -25,9 +25,11 @@
 
     .item-panel {
     	float: none;
-    	width: 90%;
-    	margin:0px 8px;
+    	width: 95%;
+    	margin:0px auto;
     	padding:5px;
+        display: flex;
+        justify-content: space-around;
     }
 
     .view-panel {
@@ -35,7 +37,28 @@
 
     }
 
-/*Article*/
+    /*Article*/
+    #outfit-preview {
+        position: relative;
+        min-height: 110px;
+        width: 98%;
+        background-color: white;
+    }
+
+    #make-outfit {
+        top: 30px;
+    }
+
+    .outfit-img {
+        width: 96px;
+        height: 96px;
+    }
+
+    #no-preview {
+        width: 30px;
+        height: 30px;
+    }
+
     .clothe {
     	width: 160px;
     }

@@ -1,0 +1,22 @@
+{
+  "name": "outfitoftheday",
+  "description": "Final project for Grand Circus Meridian Bootcamp",
+  "main": "server.js",
+  "authors": [
+    "Naomi Black",
+    "Dylan Dunne",
+    "Josh Harshaw"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "ng-file-upload": "^11.0.2",
+    "angular": "1.4.x",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x",
+    "angular-animate": "1.4.x",
+    "cloudinary_ng": "~1.0.0"
+  },
+  "homepage": "https://github.com/joshuaharshaw/wearshare",
+  "ignore": [
+  ]
+}

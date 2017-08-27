@@ -1,21 +1,27 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var pg = require('pg');
 var cloudinary = require('cloudinary');
 var pool = require("./pg-connection-pool");
+var uploadCloudinary = require('./api/cloudinary');
 // var angular = require('angular');
 
 
-// cloudinary.config({
-// 	cloud_name:"dr1gz6f3y",
-// 	api_key:"647715557514671",
-// 	api_secret:"gqj5eFiuKTQ-JkKJCB1UIUo5usI"
-// });
+cloudinary.config({
+	cloud_name:"dr1gz6f3y",
+	api_key:"647715557514671",
+	api_secret:"gqj5eFiuKTQ-JkKJCB1UIUo5usI"
+});
 
 var app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
+
+const upload = multer({
+  dest: './uploads'
+});
 
 app.get('/users', function(req,res){
 	pool.query('SELECT * FROM users').then(function(result){
@@ -131,6 +137,12 @@ app.post('/outfits/:outfit_id/:score', function(req,res){
 		res.send("server error");
 	})
 });
+
+app.post('/api/uploads', upload.single('file'), uploadCloudinary, (req, res) => {
+    const { imageLink } = req
+    res.status(200).json({ imageLink })
+  })
+ 
 
 var port = process.env.PORT || 5000;
 app.listen(port, function () {

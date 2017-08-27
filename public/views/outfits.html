@@ -14,7 +14,7 @@
 		        <ng-include src="'views/av-form.html'"></ng-include>
 		    </div>
 		    <div ng-switch-when="3">
-		        <ng-include src="'views/av-outfit.html'"></ng-include>
+		        <ng-include src="'views/av-view.html'"></ng-include>
 		    </div>
 		</div>
 	</div> -->
@@ -30,7 +30,7 @@
 
 <!-- 	<div id="item-panel">
 		<h3>Wardrobe</h3>
-		<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.id || article.article_id === outfit.bottomArticle.id || article.article_id === outfit.shoes.id }" >
+		<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle_id || article.article_id === outfit.bottomArticle_id || article.article_id === outfit.shoes_id }" >
 			<img ng-src="{{article.image_path}}">
 			<h6>{{article.article_id}}</h6>
 			<h6>{{article.article_name}}</h6>

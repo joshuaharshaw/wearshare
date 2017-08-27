@@ -5,7 +5,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	$scope.articles;
 	$scope.article = {};
 	$scope.id=$routeParams.user_id || 1;
-	$scope.avswitch = 2;
+	$scope.avswitch = 1;
 	$scope.outfit = {
 		topArticle : null,
 		bottomArticle : null,
@@ -37,6 +37,10 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		profileService.postArticle(submitted);
 	};
 
+	$scope.switchView = function (view) {
+		$scope.avswitch = view;
+	}
+
 	$scope.getArticles();
 });
 
@@ -53,6 +57,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 	$scope.procWardrobe='#!/profile/wardrobe';
 
 	$scope.avswitch = 3;
+	$scope.ovswitch=1;
 
 	if ($routeParams.user_id) {
 		$scope.homeOrNo = 0;
@@ -127,6 +132,9 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
         profileService.addRating(currentOutfit, score);
     };
 
+	$scope.switchView = function (view) {
+		$scope.ovswitch = view;
+	}
 });
 
 // Controller for Home Screen

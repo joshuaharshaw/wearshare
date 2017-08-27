@@ -1,15 +1,56 @@
-@media only screen and (max-width: 500px) {
-    body {
-        background-color: lightblue;
-    }
-}
+@media (max-width: 500px) {
 
+    div#nav {
+    	display: none;
+    }
+
+    .all-links {
+    	text-align: center;
+    	margin-bottom: 15px;
+    }
+
+	.all-links a {
+    	display: inline-block;
+    }
+
+    .all-links {
+    	display: flex;
+    	justify-content: space-around;
+    }
+
+    #main-view {
+    	float: none;
+    	width: 100%;
+    }
+
+    .item-panel {
+    	float: none;
+    	width: 90%;
+    	margin:0px 8px;
+    	padding:5px;
+    }
+
+    .view-panel {
+    	display: none;
+
+    }
+
+/*Article*/
+    .clothe {
+    	width: 160px;
+    }
+
+
+/*Outfit*/
+	.outfit {
+		width: 160px;
+		padding:5px;
+	}
+
+}
 /*Profile View*/
 
-#main-view {
-	float: left;
-	width: 80%;
-}
+
 
 /*.profile-img img{
   width:51%;
@@ -33,9 +74,10 @@
 #profile-container{
   margin: 10px 20px;
 	padding: 10px;
-  width:410px;
+  width:414px;
+  background-color: rgba(255,255,255,0.5);
+  margin: 80px auto;
 }
-
 
 .profile-user img {
 	width: 180px;
@@ -44,44 +86,55 @@
   display:block;
   margin: 10px auto;
 }
+
 .profile-user{
   text-align: center;
 }
+
+.profile-user h3{
+  color:white;
+}
+
 #bio{
   text-align: center;
   width:350px;
-  color:grey;
+  color:white;
+  padding: 0 14px 10px 14px;
+  margin: 0 15px 10px;
 }
+
 #nav-buttons{
   margin: 10px auto;
   text-align: center;
+  width:410px;
 }
 
-#nav-buttons a{
+#nav-buttons a {
   display: inline-block;
   text-decoration: none;
-  color:white;
+}
 
+button.profile-btn{
+  background-color: pink;
+  border-radius: 50%;
+  width: 70%;
+  padding:10px;
+  color:white;
+  margin: 0 5px;
+  border: 1px solid white;
+  background-color: #E9B200;
 }
 
 button:nth-child(3){
-  background-color:pink;
-  color:white;
   border-radius: 50%;
-
+  width:30%;
+  display: inline-block;
+  width: 15%;
+  display: inline-block;
+  padding-bottom: 8%;
+  text-align: center;
 }
 
-/*.profile-btn{
-  background-color:pink;
-  width:70%;
-  color:white;
-  border-radius: 50%
-}*/
-a > button.profile-btn{
-  background-color: pink;
-  border-radius: 50%;
-  width: 60%;
-}
 /*.right {
 	float: right;
 	width: 45%;

@@ -1,0 +1,15 @@
+<div class="view-title">Your Outfits</div>
+<div class="outfit" ng-repeat="outfit in outfits">	
+	<div class="img-buffer">
+		<img ng-src="{{outfit.top.image_path}}">
+		<img ng-src="{{outfit.bottom.image_path}}">
+		<img ng-src="{{outfit.shoe.image_path}}">
+	</div>						
+	
+	<h6>{{outfit.outfit_name}}</h6>
+	<p>{{outfit.outfit_desc}}</p>
+	<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
+	<div class="rating">
+	<span value="1" ng-click="addRating()">☆</span><span value="2" ng-click="addRating()">☆</span><span value="3" ng-click="addRating()">☆</span><span value="4" ng-click="addRating()">☆</span><span value="5" ng-click="addRating()">☆</span>
+	</div>
+</div>

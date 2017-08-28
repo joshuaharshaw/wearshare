@@ -7,14 +7,14 @@ app.config(function($routeProvider) {
 		controller:"homeCtrl"
 	});
 
-	$routeProvider.when("/users/:user_id",{ //Home profile for other users.
+	$routeProvider.when("/profile/:user_id",{ //Home profile for other users.
 		templateUrl:"views/profile.html",
 		controller:"profileCtrl"
 	});
 
 	$routeProvider.when("/profile", { //Home profile
 		templateUrl:"views/profile.html",
-		controller:"homeCtrl"
+		controller:"profileCtrl"
 	});
 
 	$routeProvider.when("/profile/outfits", { //Home outfits

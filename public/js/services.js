@@ -45,7 +45,7 @@ app.service("profileService" , function ($http) {
 	};
 
 	this.getUser = function (id) {
-		return $http.get('/users/' + id + 'wardrobe').then(function (response) {
+		return $http.get('/users/' + id).then(function (response) {
 			return response.data;
 		});
 	};

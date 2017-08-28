@@ -43,8 +43,13 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	}
 
 	$scope.uploader = new FileUploader({
-		url: '/api/uploads'
+		url: '/users/' + $scope.id + '/articles'
 	});
+	
+	$scope.uploader.onBeforeUploadItem = function ( item ) {
+		console.log('onBeforeUploadItem', item);
+    	item.formData = [{ article_type: $scope.article.article_type, article_name: $scope.article.article_name }];
+	};
 
 	$scope.togglePreview = function () {
 		$scope.outfit = {

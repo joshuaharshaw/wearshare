@@ -91,10 +91,3 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 		$scope.ovswitch = view;
 	}
 });
-
-
-
-
-			outfit.shoe = articles.find(function (article) {
-				return user.user_id === $scope.id;
-			});

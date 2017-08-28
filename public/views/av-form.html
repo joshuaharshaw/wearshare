@@ -4,7 +4,6 @@
     <label>Step 1: Choose a photo</label>
 
     <input type="file" nv-file-select="" uploader="uploader" accept="'image/*'">
-    <input type="button" ng-click="uploader.uploadAll()" value="button">
 
     <input type="text" name="photo" ng-model="article.image_path">
     <label>Step 2: Choose a category</label>
@@ -16,5 +15,5 @@
     <label>Step 3: Name your item:</label>
     <input type="text" name="picture" id ="item-name" placeholder="Fav pants" ng-model="article.article_name">
     <input type="textarea" name="desc" ng-model="article.article_desc">
-    <button type ="submit" class="">Add to closet</button>
+    <button type ="submit" ng-click="uploader.uploadAll()" class="">Add to closet</button>
 </form>

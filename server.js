@@ -4,14 +4,12 @@ var multer = require('multer');
 var pg = require('pg');
 var cloudinary = require('cloudinary');
 var pool = require("./pg-connection-pool");
-var uploadCloudinary = require('./api/cloudinary');
-// var angular = require('angular');
-
+var cloudinary = require('cloudinary');
 
 cloudinary.config({
-	cloud_name:"dr1gz6f3y",
-	api_key:"647715557514671",
-	api_secret:"gqj5eFiuKTQ-JkKJCB1UIUo5usI"
+  cloud_name: 'dr1gz6f3y',
+  api_key: 647715557514671,
+  api_secret: 'gqj5eFiuKTQ-JkKJCB1UIUo5usI'
 });
 
 var app = express();
@@ -102,16 +100,25 @@ app.post('/users', function(req,res){
 	})
 });
 
-app.post('/users/:user_id/articles', function(req, res){
-	var sql ='INSERT INTO articles (user_id, image_path, article_type, article_desc, article_name) '
-		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text)';
-	var values = [ req.params.user_id, req.body.image_path, req.body.article_type, req.body.article_desc, req.body.article_name ];
-	pool.query(sql, values).then(function(result){
+app.post('/users/:user_id/articles', upload.single('file'), (req, res) => {
+
+	if (req.file) {
+	console.log( req.body.article_type);
+    cloudinary.uploader.upload(req.file.path, ({ url }) => {
+      console.log(url);
+      if (url) {
+      var sql ='INSERT INTO articles (user_id, image_path, article_type, article_name) '
+		+ 'VALUES ($1::int, $2::text, $3::text, $4::text )';
+		var values = [ req.params.user_id, url, req.body.article_type, req.body.article_name ];
+		pool.query(sql, values).then(function(result){
 		res.status(201).send("Article Added!");
-	}).catch(function(err){
+		}).catch(function(err){
 		console.log(err);
 		res.status(500).send("server error");
 	})
+      }
+    })
+  }
 });
 
 app.post('/users/:user_id/outfits', function(req,res){
@@ -137,12 +144,6 @@ app.post('/outfits/:outfit_id/:score', function(req,res){
 		res.send("server error");
 	})
 });
-
-app.post('/api/uploads', upload.single('file'), uploadCloudinary, (req, res) => {
-    const { imageLink } = req
-    res.status(200).json({ imageLink })
-  })
- 
 
 var port = process.env.PORT || 5000;
 app.listen(port, function () {

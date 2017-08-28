@@ -32,8 +32,10 @@ app.service("profileService" , function ($http) {
 
 	};
 
-	this.addRating = function (currentOutfit, score, rating) {
-        return $http.post('/outfits/' + currentOutfit + '/5' , rating).then(function (response){
+	this.addRating = function (scoreParams) {
+		console.log("service activated");
+        return $http.post('/outfits/update', scoreParams).then(function (response){
+            console.log("Service completed. Rating Posted.");
             return response;
         });
     }

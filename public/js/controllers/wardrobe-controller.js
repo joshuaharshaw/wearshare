@@ -72,6 +72,8 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		} else if (article.article_type === "Shoes") {
 			$scope.outfit.shoes = article;
 		}
+
+		console.log($scope.outfit);
 	};
 	
 	console.log($scope.preview, $routeParams.show);

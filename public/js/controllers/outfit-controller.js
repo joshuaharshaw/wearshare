@@ -69,11 +69,12 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 		$scope.articles = articles;
 	});
 	
-	$scope.addRating = function () {
-        console.log(this);
-        var currentOutfit = this.outfit.outfit_id;
-        var score = this.value;
-        profileService.addRating(currentOutfit, score);
+	$scope.addRating = function (event, value) {
+        var scoreParams = {
+        	"outfit_id": this.outfit.outfit_id,
+        	"score": value
+        };
+        profileService.addRating(scoreParams);
     };
 
 	$scope.switchView = function () { // Change between viewing/adding an outfit.

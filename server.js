@@ -134,9 +134,9 @@ app.post('/users/:user_id/outfits', function(req,res){ //POST to outfits and ass
 	})
 });
 
-app.post('/outfits/:outfit_id/:score', function(req,res){ //Add a score to a particular outfit. 
+app.post('/outfits/update', function(req,res){ //Add a score to a particular outfit. 
 	var sql ='UPDATE outfits SET total_votes = total_votes + 1, total_score = total_score + $2::int WHERE outfit_id=$1::int;'
-	var values = [ req.params.outfit_id, req.params.score ];
+	var values = [ req.body.outfit_id, req.body.score ];
 	pool.query(sql, values).then(function(result){
 		res.status(201).send("Rating");
 	}).catch(function(err){

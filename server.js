@@ -7,7 +7,6 @@ var pool = require("./pg-connection-pool");
 var uploadCloudinary = require('./api/cloudinary');
 // var angular = require('angular');
 
-
 cloudinary.config({
 	cloud_name:"dr1gz6f3y",
 	api_key:"647715557514671",
@@ -23,7 +22,7 @@ const upload = multer({
   dest: './uploads'
 });
 
-app.get('/users', function(req,res){
+app.get('/users', function(req,res){ //All users
 	pool.query('SELECT * FROM users').then(function(result){
 		res.send(result.rows);
 	}).catch(function(err){
@@ -33,7 +32,7 @@ app.get('/users', function(req,res){
 	})
 });
 
-app.get('/users/:user_id', function(req,res){
+app.get('/users/:user_id', function(req,res){ //Get a particular user.
 	var sql ='SELECT * FROM users WHERE user_id=$1::int;'
 	var values = [ req.params.user_id ];
 	pool.query(sql, values).then(function(result){
@@ -45,7 +44,7 @@ app.get('/users/:user_id', function(req,res){
 	});
 });
 
-app.get('users/outfits', function(req,res){
+app.get('users/outfits', function(req,res){ //Get all outfits. For Home page. 
 	pool.query('SELECT * FROM outfits').then(function(result){
 		res.send(result.rows);
 	}).catch(function(err){
@@ -55,7 +54,7 @@ app.get('users/outfits', function(req,res){
 	})
 });
 
-app.get('/users/:user_id/outfits', function(req,res){
+app.get('/users/:user_id/outfits', function(req,res){ //Get outfits for a particular user. For outfits page.
 	var sql ='SELECT * FROM outfits WHERE user_id=$1::int;';
 	var values = [ req.params.user_id ];
 	pool.query(sql, values).then(function(result){
@@ -67,7 +66,7 @@ app.get('/users/:user_id/outfits', function(req,res){
 	})
 });
 
-app.get('/outfits/top', function(req,res){
+app.get('/outfits/top', function(req,res){ //Get highest ranked outfits. For home page. 
 	pool.query('SELECT * FROM public.outfits order by total_score desc limit 2').then(function(result){
 		res.status(201).send(result.rows);
 	}).catch(function(err){
@@ -77,7 +76,7 @@ app.get('/outfits/top', function(req,res){
 	})
 });
 
-app.get('/users/:user_id/articles', function(req,res){
+app.get('/users/:user_id/articles', function(req,res){ //Get articles for a particular user. For articles page. 
 	var sql ='SELECT * FROM articles WHERE user_id=$1::int;';
 	var values = [ req.params.user_id ];
 	pool.query(sql, values).then(function(result){
@@ -89,7 +88,7 @@ app.get('/users/:user_id/articles', function(req,res){
 	})
 });
 
-app.post('/users', function(req,res){
+app.post('/users', function(req,res){ //POST to users/Add a ner user. Admin only at the moment. 
 	var sql ='INSERT INTO users (user_name, password) '
 		+ 'VALUES ($1::text, $2::text)';
 	var values = [ req.body.user_name, req.body.password ];
@@ -102,7 +101,7 @@ app.post('/users', function(req,res){
 	})
 });
 
-app.post('/users/:user_id/articles', function(req, res){
+app.post('/users/:user_id/articles', function(req, res){ //POST a new article and associate it with a particular user.
 	var sql ='INSERT INTO articles (user_id, image_path, article_type, article_desc, article_name) '
 		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text)';
 	var values = [ req.params.user_id, req.body.image_path, req.body.article_type, req.body.article_desc, req.body.article_name ];
@@ -114,7 +113,7 @@ app.post('/users/:user_id/articles', function(req, res){
 	})
 });
 
-app.post('/users/:user_id/outfits', function(req,res){
+app.post('/users/:user_id/outfits', function(req,res){ //POST to outfits and associate with a particular user. 
 	var sql ='INSERT INTO outfits (user_id, top_id, bottom_id, shoe_id, outfit_name) '
 		+ 'VALUES ($1::int, $2::int, $3::int, $4::int, $5::text)';
 	var values = [ req.params.user_id, req.body.top_id, req.body.bottom_id, req.body.shoe_id, req.body.outfit_name ];
@@ -126,7 +125,7 @@ app.post('/users/:user_id/outfits', function(req,res){
 	})
 });
 
-app.post('/outfits/:outfit_id/:score', function(req,res){
+app.post('/outfits/:outfit_id/:score', function(req,res){ //Add a score to a particular outfit. 
 	var sql ='UPDATE outfits SET total_votes = total_votes + 1, total_score = total_score + $2::int WHERE outfit_id=$1::int;'
 	var values = [ req.params.outfit_id, req.params.score ];
 	pool.query(sql, values).then(function(result){
@@ -138,11 +137,10 @@ app.post('/outfits/:outfit_id/:score', function(req,res){
 	})
 });
 
-app.post('/api/uploads', upload.single('file'), uploadCloudinary, (req, res) => {
-    const { imageLink } = req
+app.post('/api/uploads', upload.single('file'), uploadCloudinary, (req, res) => { //Cloudinary-Uploads
+    const { imageLink } = req;
     res.status(200).json({ imageLink })
-  })
- 
+});
 
 var port = process.env.PORT || 5000;
 app.listen(port, function () {

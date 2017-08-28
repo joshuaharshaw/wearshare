@@ -1,52 +1,39 @@
 var app = angular.module("outfitApp");
 
 // Controller for Outfits Screen
-app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) {
+app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams, $location) {
+	// Outfits Variables. 
 	$scope.outfits;
 	$scope.outfit ={};
 	$scope.outfitName;
-	$scope.id= $routeParams.user_id || 1;
-	$scope.homeOrNo = 1;
+	$scope.id= $routeParams.user_id || 1; //Route Param- Sets appropriate user info, based on the user id. 
+	$scope.home = true; //Variable that hides or shows the "Add Article/Outfit" buttons and other features.
 	$scope.articles;
 	$scope.rating;
+
+	//Variables that dynamically change the URL to fit the proper user's wardrobe/outfits
 	$scope.procOutfit='#!/profile/outfits';
 	$scope.procWardrobe='#!/profile/wardrobe';
 
-	$scope.ovswitch = 1;
-
-	if ($routeParams.user_id) {
-		$scope.homeOrNo = 0;
-		$scope.avswitch = 1;
+	if ($routeParams.user_id) { //Change many parameters to adapt to different user IDs
+		$scope.home = false;
 		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
 		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
 	}
 
-	$scope.getArticles = function () {
+	$scope.getArticles = function () { //GET request to obtain correct clothing articles for a user.
 		var promise = profileService.getArticles($scope.id);
 
 		return promise;
 	};
 
-	$scope.getOutfits = function () {
+	$scope.getOutfits = function () { //GET request to obtain correct outfits for a user.
 		var promise = profileService.getOutfits($scope.id);
 
 		return promise;
 	};
-
-	$scope.select = function (article) {
-		if (article.article_type === "top") {
-			$scope.outfit.topArticle = article;
-			console.log($scope.outfit.topArticle);
-		} else if (article.article_type === "bottom") {
-			$scope.outfit.bottomArticle = article;
-			console.log($scope.outfit.bottomArticle);
-		} else if (article.article_type === "shoes") {
-			$scope.outfit.shoes = article;
-			console.log($scope.outfit.shoes);
-		}
-	};
-
-	$scope.postOutfit = function () {
+	
+	$scope.postOutfit = function () {//Send all selected items to the server as a new outfit
 		console.log($scope.outfit);
 		var outfit = {
 			"top_id":$scope.outfit.topArticle.article_id,
@@ -58,13 +45,13 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 		profileService.postOutfit(outfit);
 	};
 
-	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {
+	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {//Double promise- Get clothing articles and outfits. 
 		var outfits = response[0];
 		var articles = response[1];
 
-		outfits.forEach(function (outfit) {
-			outfit.top = articles.find(function (article) {
-				return article.article_id === outfit.top_id;
+		outfits.forEach(function (outfit) { //Find the Article that corresponds to the stored "Top/bottom/shoe id"
+			outfit.top = articles.find(function (article) { // And add each article object to a new object property Top/bottom/shoe.
+				return article.article_id === outfit.top_id; 
 			});
 
 			outfit.bottom = articles.find(function (article) {
@@ -76,6 +63,8 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
 			});
 		});
 		console.log(outfits);
+
+		//Sert Articles and Outfits on the scope to be processed.
 		$scope.outfits = outfits;
 		$scope.articles = articles;
 	});
@@ -87,14 +76,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q,$routeParams) 
         profileService.addRating(currentOutfit, score);
     };
 
-	$scope.switchView = function (view) {
-		$scope.ovswitch = view;
+	$scope.switchView = function () { // Change between viewing/adding an outfit.
+		$location.path('/profile/wardrobe/1');
 	}
 });
-
-
-
-
-			outfit.shoe = articles.find(function (article) {
-				return user.user_id === $scope.id;
-			});

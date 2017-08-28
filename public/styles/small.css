@@ -28,8 +28,6 @@
     	width: 95%;
     	margin:0px auto;
     	padding:5px;
-        display: flex;
-        justify-content: space-around;
     }
 
     .view-panel {

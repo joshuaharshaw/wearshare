@@ -7,6 +7,17 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 	$scope.id= $routeParams.user_id || 1;
 	$scope.articles;
 	$scope.rating;
+	$scope.home = true;
+
+	//Variables that dynamically change the URL to fit the proper user's wardrobe/outfits
+	$scope.procOutfit='#!/profile/outfits';
+	$scope.procWardrobe='#!/profile/wardrobe';
+
+	if ($routeParams.user_id) { //Change many parameters to adapt to different user IDs
+		$scope.home = false;
+		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
+		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
+	}
 
 	$scope.getArticles = function () {
 		var promise = profileService.getArticles($scope.id);

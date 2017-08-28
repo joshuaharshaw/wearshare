@@ -6,7 +6,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-
 module.exports = (req, res, next) => {
   if (req.file) {
     cloudinary.uploader.upload(req.file.path, ({ secure_url }) => {

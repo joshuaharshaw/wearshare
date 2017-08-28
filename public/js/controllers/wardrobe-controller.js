@@ -42,9 +42,15 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		$scope.avswitch = view;
 	}
 
-	$scope.uploader = new FileUploader({ //Cloudinary uploader
-		url: '/api/uploads'
+
+	$scope.uploader = new FileUploader({
+		url: '/users/' + $scope.id + '/articles'
 	});
+	
+	$scope.uploader.onBeforeUploadItem = function ( item ) {
+		console.log('onBeforeUploadItem', item);
+    	item.formData = [{ article_type: $scope.article.article_type, article_name: $scope.article.article_name }];
+	};
 
 	$scope.togglePreview = function () { //Toggle the "preview" box.
 		$scope.outfit = { //Reset the object, to negate clicking before the "preview" was active. Also to reset on close.

@@ -65,13 +65,15 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	}
 
 	$scope.select = function (article) { //Move selected item to the preview display
-		if (article.article_type === "top") {
+		if (article.article_type === "Top") {
 			$scope.outfit.topArticle = article;
-		} else if (article.article_type === "bottom") {
+		} else if (article.article_type === "Bottom") {
 			$scope.outfit.bottomArticle = article;
-		} else if (article.article_type === "shoes") {
+		} else if (article.article_type === "Shoes") {
 			$scope.outfit.shoes = article;
 		}
+
+		console.log($scope.outfit);
 	};
 	
 	console.log($scope.preview, $routeParams.show);

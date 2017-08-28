@@ -49,7 +49,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	
 	$scope.uploader.onBeforeUploadItem = function ( item ) {
 		console.log('onBeforeUploadItem', item);
-    	item.formData = [{ article_type: $scope.article.article_type, article_name: $scope.article.article_name }];
+    	item.formData = [{ article_type: $scope.article.article_type, article_name: $scope.article.article_name, article_desc: $scope.article.article_desc }];
 	};
 
 	$scope.togglePreview = function () { //Toggle the "preview" box.
@@ -73,6 +73,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 			$scope.outfit.shoes = article;
 		}
 	};
+	
 	console.log($scope.preview, $routeParams.show);
 	$scope.getArticles(); //Immediately call the function to obtain all outfits.
 });

@@ -11,8 +11,8 @@ app.controller("profileCtrl", function ($scope, profileService, $routeParams, $l
 
 	if ($routeParams.user_id) { //Change many parameters to adapt to different user IDs
 		$scope.home = false;
-		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
-		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
+		$scope.procOutfit = '#!/profiles/' + $routeParams.user_id + '/outfits';
+		$scope.procWardrobe = '#!/profiles/' + $routeParams.user_id + '/wardrobe';
 	}
 
 	$scope.getProfiles = function(){

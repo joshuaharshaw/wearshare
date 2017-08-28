@@ -108,9 +108,9 @@ app.post('/users/:user_id/articles', upload.single('file'), (req, res) => {
     cloudinary.uploader.upload(req.file.path, ({ url }) => {
       console.log(url);
       if (url) {
-      var sql ='INSERT INTO articles (user_id, image_path, article_type, article_name) '
-		+ 'VALUES ($1::int, $2::text, $3::text, $4::text )';
-		var values = [ req.params.user_id, url, req.body.article_type, req.body.article_name ];
+      var sql ='INSERT INTO articles (user_id, image_path, article_type, article_name, article_desc) '
+		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text )';
+		var values = [ req.params.user_id, url, req.body.article_type, req.body.article_name, req.body.article_desc ];
 		pool.query(sql, values).then(function(result){
 		res.status(201).send("Article Added!");
 		}).catch(function(err){

@@ -95,7 +95,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 	$scope.getUser = function () {
 		var currentId= this.user.user_id;
-		$location.path('/profile/' + currentId);
+		$location.path('/profiles/' + currentId);
  	};
 
 	$scope.getUsers();

@@ -32,8 +32,8 @@ app.service("profileService" , function ($http) {
 		});
 	};
 
-	this.postOutfit = function (outfit) {
-		return $http.post('/users/1/outfits', outfit).then(function (response){
+	this.postOutfit = function (id,outfit) {
+		return $http.post('/users/' + id +'/outfits', outfit).then(function (response){
 			return response;
 		});
 	};

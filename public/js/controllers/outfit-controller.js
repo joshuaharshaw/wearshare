@@ -32,18 +32,6 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 
 		return promise;
 	};
-	
-	$scope.postOutfit = function () {//Send all selected items to the server as a new outfit
-		console.log($scope.outfit);
-		var outfit = {
-			"top_id":$scope.outfit.topArticle.article_id,
-			"bottom_id":$scope.outfit.bottomArticle.article_id,
-			"shoe_id":$scope.outfit.shoes.article_id,
-			"outfit_name":$scope.outfitName
-		};
-
-		profileService.postOutfit(outfit);
-	};
 
 	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {//Double promise- Get clothing articles and outfits. 
 		var outfits = response[0];

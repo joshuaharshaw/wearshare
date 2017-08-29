@@ -11,12 +11,13 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		bottomArticle : null,
 		shoes : null
 	};
-	$scope.outfitName;
 	$scope.home=true;
 	//Variables that dynamically set the path on the navigation buttons,taking into account the
 	$scope.procOutfit='#!/profile/outfits';
 	$scope.procWardrobe='#!/profile/wardrobe';
-	$scope.preview= $routeParams.show || false; //Show or hide the "preview" boxed based on this value. 
+	$scope.preview= $routeParams.show || false; //Show or hide the "preview" boxed based on this value.
+
+	$scope.name= {}
 
 	if ($routeParams.user_id) { //For someone else's profile. Disable Add/Edit functionality and change navigation paths. 
 		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
@@ -40,21 +41,21 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	};
 
 	$scope.postOutfit = function () {//Send all selected items to the server as a new outfit
+		console.log($scope.name);
 		var outfit = {
 			"top_id":$scope.outfit.topArticle.article_id,
 			"bottom_id":$scope.outfit.bottomArticle.article_id,
 			"shoe_id":$scope.outfit.shoes.article_id,
-			"outfit_name":$scope.outfitName
+			"outfit_name":$scope.name.name
 		};
 		console.log(outfit);
 
-		// profileService.postOutfit(outfit);
+		profileService.postOutfit($scope.id , outfit);
 	};
 
 	$scope.switchView = function (view) { //Change etween viewing/adding articles of clothing. 
 		$scope.avswitch = view;
 	}
-
 
 	$scope.uploader = new FileUploader({
 		url: '/users/' + $scope.id + '/articles'

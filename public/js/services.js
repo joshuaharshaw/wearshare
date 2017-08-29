@@ -13,6 +13,19 @@ app.service("profileService" , function ($http) {
 		});
 	};
 
+	this.getAllArticles = function () {
+		return $http.get('/articles').then(function (response) {
+			return response.data;
+		});
+	};
+
+	this.getAllOutfits = function () {
+		return $http.get('/outfits').then(function (response) {
+			return response.data;
+		});
+	};
+
+
 	this.postArticle = function (article) {
 		return $http.post('/users/1/articles', article).then(function (response) {
 			return response;
@@ -29,13 +42,10 @@ app.service("profileService" , function ($http) {
 		return $http.get('/outfits/top').then(function (response) {
 			return response.data;
 		});
-
 	};
 
 	this.addRating = function (scoreParams) {
-		console.log("service activated");
         return $http.post('/outfits/update', scoreParams).then(function (response){
-            console.log("Service completed. Rating Posted.");
             return response;
         });
     }

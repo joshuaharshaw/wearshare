@@ -11,6 +11,7 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		bottomArticle : null,
 		shoes : null
 	};
+	$scope.outfitName;
 	$scope.home=true;
 	//Variables that dynamically set the path on the navigation buttons,taking into account the
 	$scope.procOutfit='#!/profile/outfits';
@@ -36,6 +37,18 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		var submitted = JSON.stringify($scope.article);
 		console.log(submitted);
 		profileService.postArticle(submitted);
+	};
+
+	$scope.postOutfit = function () {//Send all selected items to the server as a new outfit
+		var outfit = {
+			"top_id":$scope.outfit.topArticle.article_id,
+			"bottom_id":$scope.outfit.bottomArticle.article_id,
+			"shoe_id":$scope.outfit.shoes.article_id,
+			"outfit_name":$scope.outfitName
+		};
+		console.log(outfit);
+
+		// profileService.postOutfit(outfit);
 	};
 
 	$scope.switchView = function (view) { //Change etween viewing/adding articles of clothing. 

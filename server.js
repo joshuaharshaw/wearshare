@@ -44,7 +44,17 @@ app.get('/users/:user_id', function(req,res){ //Get a particular user.
 	});
 });
 
-app.get('users/outfits', function(req,res){ //Get all outfits. For Home page. 
+app.get('/articles', function(req,res){ //Get all articles. For Home page. 
+	pool.query('SELECT * FROM articles').then(function(result){
+		res.send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
+app.get('/outfits', function(req,res){ //Get all outfits. For Home page. 
 	pool.query('SELECT * FROM outfits').then(function(result){
 		res.send(result.rows);
 	}).catch(function(err){
@@ -67,7 +77,17 @@ app.get('/users/:user_id/outfits', function(req,res){ //Get outfits for a partic
 });
 
 app.get('/outfits/top', function(req,res){ //Get highest ranked outfits. For home page. 
-	pool.query('SELECT * FROM public.outfits order by total_score desc limit 2').then(function(result){
+	pool.query('SELECT outfit_id FROM outfits order by total_score desc limit 5').then(function(result){
+		res.status(201).send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
+app.get('/outfits/new', function(req,res){ //Get highest ranked outfits. For home page. 
+	pool.query('SELECT outfit_id FROM outfits order by outfit_id desc limit 5').then(function(result){
 		res.status(201).send(result.rows);
 	}).catch(function(err){
 		console.log(err);

@@ -20,6 +20,20 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		return promise;
 	};
 
+	$scope.getAllArticles = function () {
+		var promise = profileService.getAllArticles();
+
+		return promise;
+	}
+
+	$scope.getAllOutfits = function () {
+		var promise = profileService.getAllOutfits();
+
+		return promise;
+	}
+
+
+
 	$scope.select = function (article) {
 		if (article.article_type === "top") {
 			$scope.outfit.topArticle = article;
@@ -44,7 +58,8 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		profileService.postOutfit(outfit);
 	}
 
-	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {
+
+	$q.all([$scope.getAllOutfits(), $scope.getAllArticles()]).then(function (response) {
 		var outfits = response[0];
 		var articles = response[1];
 
@@ -66,21 +81,39 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 			var promise = profileService.getTop();
 
 			promise.then(function (top) {
-				$scope.top = top;
-				console.log($scope.top);
+				$scope.top = [];
+
+				top.forEach(function (item) {
+					var target = outfits.find(function (outfit) {
+						return outfit.outfit_id === item.outfit_id;
+					});
+
+					$scope.top.push(target);
+				});
+				console.log("Top Outfits: ",  $scope.top);
+			});
+		};
+		$scope.getNew = function () {
+			var promise = profileService.getNew();
+
+			promise.then(function (knew) {
+				$scope.knew = [];
+
+				knew.forEach(function (item) {
+					var target = outfits.find(function (outfit) {
+						return outfit.outfit_id === item.outfit_id;
+					});
+
+					$scope.knew.push(target);
+				});
+				console.log("Newest Outfits: ",  $scope.new);
 			});
 		};
 
+
 		$scope.getTop();
 
-		$scope.addRating = function () {
-            console.log(this);
-            var currentOutfit = this.outfit.outfit_id;
-            var score = this.value;
-            profileService.addRating(currentOutfit, score);
-        }
 
-		console.log(outfits);
 		$scope.outfits = outfits;
 	});
 
@@ -89,7 +122,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 		users.then(function (users) {
 			$scope.users = users;
-			console.log($scope.users);
+			console.log("Users: " , $scope.users);
 		});
 	};
 
@@ -97,6 +130,14 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		var currentId= this.user.user_id;
 		$location.path('/profiles/' + currentId);
  	};
+
+	$scope.addRating = function (event, value) {
+        var scoreParams = {
+        	"outfit_id": this.outfit.outfit_id,
+        	"score": value
+        };
+        profileService.addRating(scoreParams);
+    };
 
 	$scope.getUsers();
 

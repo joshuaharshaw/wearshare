@@ -1,6 +1,6 @@
-@media screen and (min-width: 501px) and (max-width: 799px) {
+@media screen and (min-width: 501px) and (max-width: 899px) {
 
-	div#nav {
+	div#nav-big {
 		width: 120px;
 		padding: 7px;
 		text-align: center;
@@ -13,6 +13,9 @@
 		font-family:'Leckerli One', cursive;
 	}
 
+    #main-view {
+    	width: 70%;
+    }
 
 	.item-panel {
 		width: 92%;
@@ -20,5 +23,33 @@
 
 	#outfit-preview {
 		width: 92%;
+	}
+
+    .clothe {
+    	width: 48%;
+    }
+
+    .outfit {
+    	width: 48%;
+    }
+
+	.outfit img:nth-child(1) {
+		width: 100px;
+		position: absolute;
+		left: 0px;
+	}
+
+	.outfit img:nth-child(2) {
+		width: 100px;
+		position: absolute;
+		left: 25px;
+		top: 10px;
+	}
+
+	.outfit img:nth-child(3) {
+		width: 100px;
+		position: absolute;
+		top: 20px;
+		left:50px;
 	}
 }

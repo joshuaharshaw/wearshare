@@ -1,34 +1,35 @@
 <div class="all-links">
-	<a ng-href="{{procWardrobe}}"><button class="profile-nav">War</button></a>
+	<a ng-href="{{procWardrobe}}"><button class="profile-nav"> <img class="nav-icon" src="images/bedroom.svg"> </button></a>
 </div>
 
 <div id="profile" ng-switch on="selection">
 	<div class="item-panel clearfix">
 		<div class="view-title">Your Outfits</div>
-			<div class="outfit" ng-repeat="outfit in outfits" ng-click="toggleModal()">
+		<div class="item-container">
+			<div class="outfit" ng-repeat="outfit in outfits"  ng-click="toggleModal()">
+				<div class="img-buffer">
+					<img ng-src="{{outfit.top.image_path}}">
+					<img ng-src="{{outfit.bottom.image_path}}">
+					<img ng-src="{{outfit.shoe.image_path}}">
+				</div>
 
-			<div class="img-buffer">
-				<img ng-src="{{outfit.top.image_path}}">
-				<img ng-src="{{outfit.bottom.image_path}}">
-				<img ng-src="{{outfit.shoe.image_path}}">
+				<h6>{{outfit.outfit_name}}</h6>
+				<p>{{outfit.outfit_desc}}</p>
+				<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
+				<div class="rating">
+					<span ng-click="addRating($event, 5)">☆</span>
+					<span ng-click="addRating($event, 4)">☆</span>
+					<span ng-click="addRating($event, 3)">☆</span>
+					<span ng-click="addRating($event, 2)">☆</span>
+					<span ng-click="addRating($event, 1)">☆</span>
+				</div>
 			</div>
 
-			<h6>{{outfit.outfit_name}}</h6>
-			<p>{{outfit.outfit_desc}}</p>
-			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
-			<div class="rating">
-				<span ng-click="addRating($event, 5)">☆</span>
-				<span ng-click="addRating($event, 4)">☆</span>
-				<span ng-click="addRating($event, 3)">☆</span>
-				<span ng-click="addRating($event, 2)">☆</span>
-				<span ng-click="addRating($event, 1)">☆</span>
-			</div>
-		</div>
-
-		<div class="outfit" ng-click="switchView()" ng-if="home">
-			<div class="new-item">
-				<p>+</p>
-				<p>Add An Outfit</p>
+			<div class="outfit" ng-click="switchView()" ng-if="home">
+				<div class="new-item">
+					<p>+</p>
+					<p>Add An Outfit</p>
+				</div>
 			</div>
 		</div>
 	</div>

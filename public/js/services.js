@@ -13,29 +13,45 @@ app.service("profileService" , function ($http) {
 		});
 	};
 
+	this.getAllArticles = function () {
+		return $http.get('/articles').then(function (response) {
+			return response.data;
+		});
+	};
+
+	this.getAllOutfits = function () {
+		return $http.get('/outfits').then(function (response) {
+			return response.data;
+		});
+	};
+
+
 	this.postArticle = function (article) {
 		return $http.post('/users/1/articles', article).then(function (response) {
 			return response;
 		});
 	};
 
-	this.postOutfit = function (outfit) {
-		return $http.post('/users/1/outfits', outfit).then(function (response){
+	this.postOutfit = function (id,outfit) {
+		return $http.post('/users/' + id +'/outfits', outfit).then(function (response){
 			return response;
 		});
 	};
 	
-	this.getTop= function(){
+	this.getTop = function(){
 		return $http.get('/outfits/top').then(function (response) {
 			return response.data;
 		});
+	};
 
+	this.getNew = function(){
+		return $http.get('/outfits/new').then(function (response) {
+			return response.data;
+		});
 	};
 
 	this.addRating = function (scoreParams) {
-		console.log("service activated");
         return $http.post('/outfits/update', scoreParams).then(function (response){
-            console.log("Service completed. Rating Posted.");
             return response;
         });
     }

@@ -1,7 +1,68 @@
-@media (max-width: 500px) {
+@media screen and (max-width: 599px) {
+    * {
+      font-size: 100%;
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .clearfix {
+      overflow: auto;
+    }
+
+    div#nav-big {
+    	display: none;
+    }
 
     div#nav {
-    	display: none;
+      display: block;
+      text-align: center;
+      background-color: #E9B200;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    #nav-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #left-third {
+      width: 50px;
+      height: 50px;
+      display: inline;
+      background-color: purple;
+      box-shadow: 2px 2px 5px #4B0082;
+      border-radius: 50%;
+      margin: 15px;
+    }
+
+    /*#left-third:hover{
+        width: 55px;
+        height: 55px;
+        background-color: #4f084f ;
+    }*/
+
+    #right-third {
+      width: 50px;
+      height: 50px;
+      display: inline;
+      background-color: purple;
+      box-shadow: 2px 2px 5px #4B0082 ;
+      border-radius: 50%;
+      margin: 15px;
+    }
+
+    #middle-half {
+      width: 60%;
+      display: inline;
+    }
+
+    .glyphicon {
+      color: gold;
+      margin-top: 15px;
     }
 
     .all-links {
@@ -9,13 +70,18 @@
     	margin-bottom: 15px;
     }
 
-	.all-links a {
+	 .all-links a {
     	display: inline-block;
     }
 
     .all-links {
     	display: flex;
     	justify-content: space-around;
+    }
+
+    .profile-nav {
+        width: 60px;
+        height: 60px;
     }
 
     #main-view {
@@ -58,15 +124,13 @@
     }
 
     .clothe {
-    	width: 160px;
+    	width: 48%;
     }
 
-
-/*Outfit*/
-	.outfit {
-		width: 160px;
-		padding:5px;
-	}
+    /*Outfit*/
+  	.outfit {
+  		width: 48%;
+  	}
 
 }
 /*Profile View*/

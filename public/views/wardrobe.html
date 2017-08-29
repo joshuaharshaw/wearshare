@@ -1,12 +1,12 @@
 <div class="all-links">
-	<a ng-href="{{procOutfit}}"><button class="profile-nav">Out</button></a>
+	<a ng-href="{{procOutfit}}"><button class="profile-nav"> <img class="nav-icon two" src="images/clothes.svg"> </button></a>
 </div>
 
 <div id="outfit-preview" ng-if="preview" >
 	<span id="preview-wrapper"><img class="outfit-img" ng-src="{{outfit.topArticle.image_path}}"></span>
 	<img class="outfit-img" ng-src="{{outfit.bottomArticle.image_path}}">
 	<img class="outfit-img" ng-src="{{outfit.shoes.image_path}}">
-	<input type="text" name="out-name" placeholder="Name Your Outfit!" ng-model="outfitName" id="out-name">
+	<input type="text" name="out-name" placeholder="Name Your Outfit!" ng-model="name.name" id="out-name">
 	<button id="no-preview" ng-click="togglePreview()">X</button>
 	<button id="make-outfit" ng-click="postOutfit()"> <div class="glyphicon"> +</div> Create!</button>
 </div>

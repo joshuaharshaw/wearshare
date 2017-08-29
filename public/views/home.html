@@ -2,7 +2,7 @@
 <h1 class ="home">Home</h1>
 <div class="home-container">
   <div class= "box-container">
-    <p>Most Starred</p>
+    <p>Most Popular</p>
     <div class="outfit" ng-repeat="best in top">
       <div class="img-buffer">
         <div>{{best.outfit_name}}</div>
@@ -16,9 +16,9 @@
       <h6>{{outfit.outfit_name}}</h6>
       <p>{{outfit.outfit_desc}}</p>
       <p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
-      <div class="rating">
+<!--       <div class="rating">
             <span value="1" ng-click="addRating()">☆</span><span value="2" ng-click="addRating()">☆</span><span value="3" ng-click="addRating()">☆</span><span value="4" ng-click="addRating()">☆</span><span value="5" ng-click="addRating()">☆</span>
-      </div>
+      </div> -->
 
     </div>
 
@@ -26,20 +26,22 @@
   </div>
   <div class="home-container">
     <div class="box-container">
-      <p>Trending</p>
-      <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
+      <p>Most Recent</p>
+      <div class="outfit" ng-repeat="newest in new">
   			<div class="img-buffer">
-  				<img ng-src="{{outfit.top.image_path}}">
-  				<img ng-src="{{outfit.bottom.image_path}}">
-  				<img ng-src="{{outfit.shoe.image_path}}">
+        <div>{{newest.outfit_name}}</div>
+        <div>{{newest.total_score}}</div>
+        <img ng-src="{{newest.top.image_path}}">
+        <img ng-src="{{newest.bottom.image_path}}">
+        <img ng-src="{{newest.shoe.image_path}}">
   			</div>
 
   			<h6>{{outfit.outfit_name}}</h6>
   			<p>{{outfit.outfit_desc}}</p>
   			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
-        <div class="rating">
+<!--         <div class="rating">
               <span value="1" ng-click="addRating()">☆</span><span value="2" ng-click="addRating()">☆</span><span value="3" ng-click="addRating()">☆</span><span value="4" ng-click="addRating()">☆</span><span value="5" ng-click="addRating()">☆</span>
-        </div>
+        </div> -->
   		</div>
     </div>
   </div>
@@ -57,9 +59,9 @@
   			<h6>{{outfit.outfit_name}}</h6>
   			<p>{{outfit.outfit_desc}}</p>
   			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
-        <div class="rating">
+<!--         <div class="rating">
               <span value="1" ng-click="addRating()">☆</span><span value="2" ng-click="addRating()">☆</span><span value="3" ng-click="addRating()">☆</span><span value="4" ng-click="addRating()">☆</span><span value="5" ng-click="addRating()">☆</span>
-        </div>
+        </div> -->
   		</div>
 
     </div>

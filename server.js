@@ -77,7 +77,17 @@ app.get('/users/:user_id/outfits', function(req,res){ //Get outfits for a partic
 });
 
 app.get('/outfits/top', function(req,res){ //Get highest ranked outfits. For home page. 
-	pool.query('SELECT outfit_id FROM outfits order by total_score desc limit 2').then(function(result){
+	pool.query('SELECT outfit_id FROM outfits order by total_score desc limit 5').then(function(result){
+		res.status(201).send(result.rows);
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
+app.get('/outfits/new', function(req,res){ //Get highest ranked outfits. For home page. 
+	pool.query('SELECT outfit_id FROM outfits order by outfit_id desc limit 5').then(function(result){
 		res.status(201).send(result.rows);
 	}).catch(function(err){
 		console.log(err);

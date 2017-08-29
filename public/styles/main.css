@@ -371,3 +371,9 @@ figcaption {
    content: "\2605";
    position: absolute;
 }
+
+.selected::before {
+	content: url('../images/checkMark.png');
+	position: absolute;
+	padding-left: 20px;
+}

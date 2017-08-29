@@ -3,7 +3,7 @@
 <div class="home-container">
   <div class= "box-container">
     <p>Most Starred</p>
-    <div class="outfit" ng-repeat="best in top">
+    <div class="outfit" ng-click="toggleModal()"ng-repeat="best in top">
       <div class="img-buffer">
         <div>{{best.outfit_name}}</div>
         <div>{{best.total_score}}</div>
@@ -27,7 +27,7 @@
   <div class="home-container">
     <div class="box-container">
       <p>Trending</p>
-      <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
+      <div class="outfit" ng-click="toggleModal()"ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
   			<div class="img-buffer">
   				<img ng-src="{{outfit.top.image_path}}">
   				<img ng-src="{{outfit.bottom.image_path}}">
@@ -47,7 +47,7 @@
   <div class="home-container">
     <div class="box-container">
       <p>My Ratings</p>
-      <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
+      <div class="outfit" ng-click="toggleModal()"ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'">
   			<div class="img-buffer">
   				<img ng-src="{{outfit.top.image_path}}">
   				<img ng-src="{{outfit.bottom.image_path}}">
@@ -77,3 +77,10 @@
     </div>
   </div>
 </div>
+<outfit-modal show='modalShown' width='400px' height='350px'>
+  <div class="modal-img">
+    <img ng-src="{{modal.top.image_path}}">
+    <img ng-src="{{modal.bottom.image_path}}">
+    <img ng-src="{{modal.shoe.image_path}}">
+  </div>
+</outfit-modal>

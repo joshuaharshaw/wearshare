@@ -1,10 +1,13 @@
-<div class="view-title">Your Wardrobe</div>
+
+	<div class="view-title">Your Wardrobe</div>
 <button class="outfit-btn" ng-click="togglePreview()" ng-if="home">New Outfit</button>
-<div class="clothe" ng-repeat="article in articles" ng-click="select(article)" ng-class="{ selected: article.article_id === outfit.topArticle.article_id || article.article_id === outfit.bottomArticle.article_id || article.article_id === outfit.shoes.article_id }" >
+<div class="clothe" ng-repeat="article in articles" ng-click="onClickArticle(article)" ng-class=" { selected: article.article_id === outfit.topArticle.article_id || article.article_id === outfit.bottomArticle.article_id || article.article_id === outfit.shoes.article_id }">
 	<img ng-src="{{article.image_path}}">
 	<h6>{{article.article_name}}</h6>
 	<h6>{{article.article_type}}</h6>
 </div>
+
+
 
 <div class="clothe" ng-click="switchView(2)" ng-if="home">
 	<div class="new-item">
@@ -12,3 +15,14 @@
 		<p>Add An Article of Clothing</p>
 	</div>
 </div>
+
+<div class ="modal-display" >
+<articles-modal show='modalShown' width='400px' height='350px'>
+	<div class="modal-img">
+		<img ng-src="{{modal.image_path}}">
+	</div>
+</articles-modal>
+</div>
+
+<!-- ng-click="select(article)" -->
+<!-- ng-click="toggleModal()" -->

@@ -41,4 +41,50 @@ app.config(function($routeProvider) {
 		templateUrl:"views/outfits.html",
 		controller:"outfitCtrl"
 	});
-});
+
+	});
+
+	app.directive('outfitModal', function() {
+	  return {
+	    restrict: 'E',
+	    scope: {
+		    show: '=' //sets up a 2-way binding between the variable given to the show attribute and the show variable on our scope. //toggles modal
+		  },
+		  // replace: true, // Replace with the template below
+		  transclude: true, // to insert content inside the directive
+		  link: function(scope, element, attrs) {
+		    scope.dialogStyle = {}; // update the DOM
+		    if (attrs.width)
+		      scope.dialogStyle.width = attrs.width;
+		    if (attrs.height)
+		      scope.dialogStyle.height = attrs.height;
+		    scope.hideModal = function() {
+					scope.show = false;
+		    };
+		  },
+		  templateUrl: 'views/partials/outfit-modal.html' // template for outfitModal
+		};
+	});
+
+	app.directive('articlesModal', function() {
+	  return {
+	    restrict: 'E',
+	    scope: {
+		    show: '='
+		  },
+		  // replace: true,
+		  transclude: true, // to insert content inside 
+		  link: function(scope, element, attrs) {
+		    scope.dialogStyle = {}; // update the DOM
+		    if (attrs.width)
+		      scope.dialogStyle.width = attrs.width;
+		    if (attrs.height)
+		      scope.dialogStyle.height = attrs.height;
+		    scope.hideModal = function() {
+					scope.show = false;
+
+		    };
+		  },
+		  templateUrl: 'views/partials/article-modal.html'
+		};
+	});

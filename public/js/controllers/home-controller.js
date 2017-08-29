@@ -70,7 +70,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 				console.log($scope.top);
 			});
 		};
-		
+
 		$scope.getTop();
 
 		$scope.addRating = function () {
@@ -99,4 +99,14 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
  	};
 
 	$scope.getUsers();
+
+	$scope.modalShown = false;
+	$scope.toggleModal = function() { //toggles the value of the modalShown variable
+		$scope.modalShown = !$scope.modalShown;
+		console.log("Outfit modal working");
+  	$scope.modal = this.outfit;
+		console.log($scope.modal);
+  };
+
+
 });

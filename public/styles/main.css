@@ -191,7 +191,7 @@ li {
 	border:3px dashed black;
 	border-radius: 8px;
 	text-align:center;
-	height: 230px; 
+	height: 230px;
 	margin-left: -8px;
 	padding-top: 30px;
 }
@@ -376,4 +376,56 @@ figcaption {
 	content: url('../images/checkMark.png');
 	position: absolute;
 	padding-left: 20px;
+/*Custom directive modal styles */
+}
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:fixed;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#808080;
+  opacity: 0.6;
+}
+
+.ng-modal-dialog {
+  background-color: #fff;
+  box-shadow: 10px 10px #595554;
+  border-radius: 4px;
+  z-index:10000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+
+
+}
+.modal-img img{
+ border-radius: 4px;
+ padding: 5px;
+ width: 150px;
+
 }

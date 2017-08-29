@@ -2,11 +2,11 @@ var app = angular.module("outfitApp");
 
 // Controller for Outfits Screen
 app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams, $location) {
-	// Outfits Variables. 
+	// Outfits Variables.
 	$scope.outfits;
 	$scope.outfit ={};
 	$scope.outfitName;
-	$scope.id= $routeParams.user_id || 1; //Route Param- Sets appropriate user info, based on the user id. 
+	$scope.id= $routeParams.user_id || 1; //Route Param- Sets appropriate user info, based on the user id.
 	$scope.home = true; //Variable that hides or shows the "Add Article/Outfit" buttons and other features.
 	$scope.articles;
 	$scope.rating;
@@ -32,7 +32,7 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 
 		return promise;
 	};
-	
+
 	$scope.postOutfit = function () {//Send all selected items to the server as a new outfit
 		console.log($scope.outfit);
 		var outfit = {
@@ -45,13 +45,13 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 		profileService.postOutfit(outfit);
 	};
 
-	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {//Double promise- Get clothing articles and outfits. 
+	$q.all([$scope.getOutfits(), $scope.getArticles()]).then(function (response) {//Double promise- Get clothing articles and outfits.
 		var outfits = response[0];
 		var articles = response[1];
 
 		outfits.forEach(function (outfit) { //Find the Article that corresponds to the stored "Top/bottom/shoe id"
 			outfit.top = articles.find(function (article) { // And add each article object to a new object property Top/bottom/shoe.
-				return article.article_id === outfit.top_id; 
+				return article.article_id === outfit.top_id;
 			});
 
 			outfit.bottom = articles.find(function (article) {
@@ -68,16 +68,26 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 		$scope.outfits = outfits;
 		$scope.articles = articles;
 	});
-	
+
 	$scope.addRating = function (event, value) {
         var scoreParams = {
         	"outfit_id": this.outfit.outfit_id,
         	"score": value
         };
         profileService.addRating(scoreParams);
-    };
+			}
+
 
 	$scope.switchView = function () { // Change between viewing/adding an outfit.
-		$location.path('/profile/wardrobe/1');
-	}
+		$location.path('/profile/wardrobe/new-outfit');
+	};
+
+//
+	$scope.modalShown = false;
+	$scope.toggleModal = function() { //toggles the value of the modalShown variable
+		$scope.modalShown = !$scope.modalShown;
+		console.log("Outfit modal working");
+  	$scope.modal = this.outfit;
+		console.log($scope.modal);
+  };
 });

@@ -93,11 +93,27 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 				console.log("Top Outfits: ",  $scope.top);
 			});
 		};
+		$scope.getNew = function () {
+			var promise = profileService.getNew();
+
+			promise.then(function (knew) {
+				$scope.knew = [];
+
+				knew.forEach(function (item) {
+					var target = outfits.find(function (outfit) {
+						return outfit.outfit_id === item.outfit_id;
+					});
+
+					$scope.knew.push(target);
+				});	
+				console.log("Newest Outfits: ",  $scope.new);
+			});
+		};
 
 		
 		$scope.getTop();
 
-		console.log("Outfits: ", outfits);
+
 		$scope.outfits = outfits;
 	});
 

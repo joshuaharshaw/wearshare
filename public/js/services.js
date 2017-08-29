@@ -38,8 +38,14 @@ app.service("profileService" , function ($http) {
 		});
 	};
 	
-	this.getTop= function(){
+	this.getTop = function(){
 		return $http.get('/outfits/top').then(function (response) {
+			return response.data;
+		});
+	};
+
+	this.getNew = function(){
+		return $http.get('/outfits/new').then(function (response) {
 			return response.data;
 		});
 	};

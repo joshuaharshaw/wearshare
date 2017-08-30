@@ -151,16 +151,9 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 			$scope.modal===toggle;
 			console.log("topR");
 		}
-		else if ($scope.modal=this.outfit) {
-			$scope.modal===toggle;
-			console.log("my outfit");
-		}
-
 		else if ($scope.modal=this.newest.outfit){
-			$scope.modal=toggle;
-			console.log("newest");
+			$scope.modal===toggle;
+				console.log(this.newest.outfit);
 		}
-
-		console.log($scope.modal);
 	};
 });

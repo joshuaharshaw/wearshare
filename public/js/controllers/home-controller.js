@@ -32,8 +32,6 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		return promise;
 	}
 
-
-
 	$scope.select = function (article) {
 		if (article.article_type === "top") {
 			$scope.outfit.topArticle = article;
@@ -57,7 +55,6 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 		profileService.postOutfit(outfit);
 	}
-
 
 	$q.all([$scope.getAllOutfits(), $scope.getAllArticles()]).then(function (response) {
 		var outfits = response[0];
@@ -93,26 +90,30 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 				console.log("Top Outfits: ",  $scope.top);
 			});
 		};
+
 		$scope.getNew = function () {
 			var promise = profileService.getNew();
 
-			promise.then(function (knew) {
-				$scope.knew = [];
+			promise.then(function (newOuts) {
+				var newOutfits = newOuts;
 
-				knew.forEach(function (item) {
+				console.log(newOutfits);
+
+				newOutfits.forEach(function (item) {
 					var target = outfits.find(function (outfit) {
 						return outfit.outfit_id === item.outfit_id;
 					});
 
-					$scope.knew.push(target);
+					item.outfit = target;
 				});
+
+				$scope.new = newOutfits;
 				console.log("Newest Outfits: ",  $scope.new);
 			});
 		};
 
-
 		$scope.getTop();
-
+		$scope.getNew();
 
 		$scope.outfits = outfits;
 	});
@@ -123,6 +124,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		users.then(function (users) {
 			$scope.users = users;
 			console.log("Users: " , $scope.users);
+			// $scope.users.shift();
 		});
 	};
 

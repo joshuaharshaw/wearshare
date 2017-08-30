@@ -5,6 +5,8 @@ app.controller("profileCtrl", function ($scope, profileService, $routeParams, $l
 	$scope.id = $routeParams.user_id || 1;
 	$scope.home = true;
 
+	console.log($scope.id);
+
 	//Variables that dynamically change the URL to fit the proper user's wardrobe/outfits
 	$scope.procOutfit='#!/profile/outfits';
 	$scope.procWardrobe='#!/profile/wardrobe';

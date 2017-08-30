@@ -144,9 +144,19 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 	$scope.modalShown = false;
 	$scope.toggleModal = function() { //toggles the value of the modalShown variable
 		$scope.modalShown = !$scope.modalShown;
-		console.log("Outfit modal working");
-  	$scope.modal = this.outfit;
-		console.log($scope.modal);
+		// console.log("Outfit modal working");
+  	if ($scope.modal = ($scope.modal= this.best)){
+			console.log($scope.modal)
+		}
+		else if ($scope.modal =($scope.modal= this.outfit)){
+			console.log($scope.modal);
+		}
+		else if ($scope.modal=($scope.modal=this.newest)){
+			console.log($scope.modal);
+		}
+
+
+		// console.log($scope.modal);
   };
 
 

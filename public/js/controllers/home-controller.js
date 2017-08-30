@@ -157,7 +157,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		}
 
 		else if ($scope.modal=this.newest.outfit){
-			$scope.modal=toggle;
+			$scope.modal===toggle;
 			console.log("newest");
 		}
 

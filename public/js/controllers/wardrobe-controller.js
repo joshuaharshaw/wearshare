@@ -100,9 +100,9 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	$scope.modalShown = false;
 	$scope.toggleModal = function(article) { //toggles the value of the modalShown variable
 		$scope.modalShown = !$scope.modalShown;
-		console.log("article modal working");
+		// console.log("article modal working");
   	$scope.modal = article;
-		console.log($scope.modal);
+		// console.log($scope.modal);
 	};
 
 	$scope.onClickArticle = function (article){

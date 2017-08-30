@@ -11,14 +11,16 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 	$scope.articles;
 	$scope.rating;
 
+	console.log("Controller Loaded");
+
 	//Variables that dynamically change the URL to fit the proper user's wardrobe/outfits
 	$scope.procOutfit='#!/profile/outfits';
 	$scope.procWardrobe='#!/profile/wardrobe';
 
 	if ($routeParams.user_id) { //Change many parameters to adapt to different user IDs
 		$scope.home = false;
-		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
-		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
+		$scope.procOutfit = '#!/profiles/' + $routeParams.user_id + '/outfits';
+		$scope.procWardrobe = '#!/profiles/' + $routeParams.user_id + '/wardrobe';
 	}
 
 	$scope.getArticles = function () { //GET request to obtain correct clothing articles for a user.
@@ -70,7 +72,6 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 		$location.path('/profile/wardrobe/new-outfit');
 	};
 
-//
 	$scope.modalShown = false;
 	$scope.toggleModal = function() { //toggles the value of the modalShown variable
 		$scope.modalShown = !$scope.modalShown;

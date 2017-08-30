@@ -10,8 +10,9 @@
         <option>Bottom</option>
         <option>Shoe</option>
     </select>
-    <label>Step 3: Name your item:</label>
+    <label>Step 3: Name your item</label>
     <input type="text" name="picture" id ="item-name" placeholder="Fav pants" ng-model="article.article_name">
-    <input type="textarea" name="desc" ng-model="article.article_desc">
-    <button type ="submit" ng-click="uploader.uploadAll()" class="">Add to closet</button>
+    <label>Step 4: Describe your item</label>
+    <input type="textarea" name="desc" ng-model="article.article_desc" id="desc">
+    <button type ="submit" ng-click="uploader.uploadAll()" id="add-btn">Add to closet</button>
 </form>

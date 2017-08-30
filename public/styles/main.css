@@ -28,7 +28,7 @@ div#nav-big {
 	float: left;
 	background-color: #E9B200;
 	width: 200px;
-	height: 1000px;
+	height: 2000px;
 	padding: 10px;
 	text-align: center;
 	margin-right: 30px;
@@ -48,6 +48,11 @@ div#nav-big {
 	width: 75%;
 	border:1px solid black;
 	margin:10px auto;
+}
+
+#user-img-small {
+	width: 100px;
+	height: 100px;
 }
 
 div#nav {
@@ -126,6 +131,9 @@ li {
 }
 
 .outfit-btn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
 	background-color: white;
 	color: #8b008b;
 	border:1.5px solid #8b008b;
@@ -155,11 +163,14 @@ li {
 
 #no-preview {
 	position: absolute;
-	right: -5px;
-	top: -5px;
+	right: 10px;
+	top: 5px;
 	background-color: red;
 	width: 30px;
 	height: 30px;
+	border: 1px solid black;
+	border-radius: 50%;
+	color: white;
 }
 
 .item-panel {
@@ -171,14 +182,27 @@ li {
 	padding: 10px;
 }
 
-.view-title {
-	font-size: 2em;
+.item-panel form {
+	text-align: center;
 }
 
-.outfit-btn {
-	position: absolute;
-	right: 10px;
-	top: 10px;
+.item-panel input {
+	margin: 0px auto;
+}
+
+#desc {
+	display: block;
+	margin: 10px auto;
+}
+
+#add-btn {
+	background-color: white;
+	padding: 3px;
+	border: 1px solid black;
+}
+
+.view-title {
+	font-size: 2em;
 }
 
 .item-container {
@@ -234,7 +258,8 @@ li {
 }
 
 .outfit {
-	width: 185px;
+	width: 23%;
+	max-width: 200px;
 	margin: 5px 0;
 	padding:10px;
 	background-color: rgba(	128, 128, 128, 0.3);
@@ -246,6 +271,26 @@ li {
 	margin-bottom: 10px;
 }
 
+.outfit img:nth-child(1) {
+	width: 100px;
+	position: absolute;
+	left: 0px;
+}
+
+.outfit img:nth-child(2) {
+	width: 100px;
+	position: absolute;
+	left: 25px;
+	top: 10px;
+}
+
+.outfit img:nth-child(3) {
+	width: 100px;
+	position: absolute;
+	top: 20px;
+	left:50px;
+}
+
 .outfit-form {
 	text-align: center;
 }
@@ -254,25 +299,7 @@ li {
 	width: 100px;
 }
 
-.outfit img:nth-child(1) {
-	width: 100px;
-	position: absolute;
-	left: 25px;
-}
 
-.outfit img:nth-child(2) {
-	width: 100px;
-	position: absolute;
-	left: 50px;
-	top: 10px;
-}
-
-.outfit img:nth-child(3) {
-	width: 100px;
-	position: absolute;
-	top: 20px;
-	left:75px;
-}
 
 .rating {
   unicode-bidi: bidi-override;
@@ -360,8 +387,9 @@ figcaption {
   display: block;
   width: 200px;
   height: 20px;
-  margin: 10px;
+  margin: 10px auto;
 }
+
 .form-container{
   border: 10px solid darkMagenta;
   background-color: white;
@@ -491,12 +519,17 @@ button.profile-btn{
 }
 
 #nav-buttons{
-margin: 10px auto;
-text-align: center;
-width:410px;
+	margin: 10px auto;
+	text-align: center;
+	width:410px;
+	display: flex;
+	justify-content: space-around;
 }
 
 #nav-buttons a {
-display: inline-block;
-text-decoration: none;
+	display: inline-block;
+	text-decoration: none;
+	color: #8b008b;
 }
+
+.

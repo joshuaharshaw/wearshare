@@ -30,26 +30,6 @@
     }
 
     .outfit {
-    	width: 48%;
+    	width: 44%;
     }
-
-	.outfit img:nth-child(1) {
-		width: 100px;
-		position: absolute;
-		left: 0px;
-	}
-
-	.outfit img:nth-child(2) {
-		width: 100px;
-		position: absolute;
-		left: 25px;
-		top: 10px;
-	}
-
-	.outfit img:nth-child(3) {
-		width: 100px;
-		position: absolute;
-		top: 20px;
-		left:50px;
-	}
 }

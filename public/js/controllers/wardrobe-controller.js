@@ -24,8 +24,8 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	$scope.name= {}
 
 	if ($routeParams.user_id) { //For someone else's profile. Disable Add/Edit functionality and change navigation paths.
-		$scope.procOutfit = '#!/profile/' + $routeParams.user_id + '/outfits';
-		$scope.procWardrobe = '#!/profile/' + $routeParams.user_id + '/wardrobe';
+		$scope.procOutfit = '#!/profiles/' + $routeParams.user_id + '/outfits';
+		$scope.procWardrobe = '#!/profiles/' + $routeParams.user_id + '/wardrobe';
 		$scope.home=false;
 	}
 

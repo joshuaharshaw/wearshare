@@ -1,5 +1,6 @@
 <div id ="home">
-<h1 class ="home">Home</h1>
+<h1 class ="home">Community</h1>
+
 <div class="home-container">
   <div class= "box-container">
     <p>Popular - Outfits with the highest score</p>
@@ -38,31 +39,12 @@
     </div>
   </div>
 
-<!--   <div class="home-container">
-    <div class="box-container">
-      <p>My Ratings</p>
-      <div class="item-container">
-        <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'" ng-click="toggleModal(toggle)">
-    			<div class="img-buffer">
-    				<img ng-src="{{outfit.top.image_path}}">
-    				<img ng-src="{{outfit.bottom.image_path}}">
-    				<img ng-src="{{outfit.shoe.image_path}}">
-    			</div>
-
-    			<h6>{{outfit.outfit_name}}</h6>
-    			<p>{{outfit.outfit_desc}}</p>
-    			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}} </p>
-    		</div>
-      </div>
-    </div>
-  </div>
- -->
   <div class="home-container">
     <div class="box-container clearfix">
-      <h3>Other Users - Check their wardrobe out!</h3>
+      <p>Other Users - Check their wardrobes out!</p>
       <div class="item-container">
         <div class="user" ng-repeat="user in users" ng-click="getUser()">
-          <img ng-src="{{user.thumbnail}}">
+          <img ng-src="{{user.profile_pic}}">
           <h4>{{user.user_name}}</h4>
           <p>{{user.user_desc}}</p>
         </div>
@@ -70,6 +52,7 @@
     </div>
   </div>
 </div>
+
 <outfit-modal show='modalShown' width='400px' height='350px'>
   <div class="modal-img">
     <img ng-src="{{modal.top.image_path}}">

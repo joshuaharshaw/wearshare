@@ -1,4 +1,4 @@
-var app = angular.module("outfitApp", ["ngRoute", "angularFileUpload"]);
+var app = angular.module("outfitApp", ["ngRoute", "angularFileUpload", "ngAnimate"]);
 
 app.config(function($routeProvider) {
 
@@ -40,6 +40,10 @@ app.config(function($routeProvider) {
 	$routeProvider.when("/profiles/:user_id/outfits", {//Other person's outfit
 		templateUrl:"views/outfits.html",
 		controller:"outfitCtrl"
+	});
+
+	$routeProvider.otherwise({//If no routes match
+		redirectTo:"/home"
 	});
 
 	});

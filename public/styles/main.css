@@ -19,9 +19,16 @@ body {
 	background-color:#8b008b;
 }
 
-button.yellow {
-	background-color:#E9B200;
-	border: none;
+.primeFactors.ng-enter {
+    animation: bounceIn 750ms;
+}
+
+.cardDisplay img.ng-enter {
+    animation: fadeInLeft 650ms;
+}
+
+.cardDisplay img.ng-leave {
+    animation: fadeOutDown 650ms;
 }
 
 div#nav-big {
@@ -152,6 +159,7 @@ li {
 	position: absolute;
 	left: 38%;
 	top: -20px;
+	border-radius:4px;
 }
 
 #make-outfit {
@@ -203,6 +211,8 @@ li {
 
 .view-title {
 	font-size: 2em;
+	font-variant: small-caps;
+	text-align: center;
 }
 
 .item-container {
@@ -235,6 +245,7 @@ li {
 	height: 230px;
 	margin-left: -8px;
 	padding-top: 30px;
+	margin:0px auto;
 }
 
 .new-item p:nth-child(1) {
@@ -310,11 +321,13 @@ li {
   display: inline-block;
   position: relative;
   width: 1.1em;
+  font-size: 1.5em;
 }
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
+   color: #E9B200;
 }
 
 /*Home view */
@@ -330,6 +343,7 @@ div#home{
 	margin: 20px auto;
 	font-family: 'Leckerli One', cursive;
 	font-size: 60px;
+	height: 80px;
 }
 
 .home-container{
@@ -342,6 +356,12 @@ div#home{
 .box-container{
 	margin: 10px auto;
   	padding: 10px;
+}
+
+.box-container > p {
+	font-size: 1.5em;
+	font-variant: small-caps;
+
 }
 
 .box-container:after{
@@ -463,8 +483,9 @@ figcaption {
   margin: 10px 20px;
   padding: 10px;
   width:414px;
-  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255, 0.9);
   margin: 80px auto;
+  border:5px solid #E9B200;
 }
 
 .profile-user img {
@@ -473,31 +494,12 @@ figcaption {
 	border-radius: 50%;
 	display:block;
   	margin: 10px auto;
+  	border:4px solid #8b008b;
 }
 
 .profile-user {
   text-align: center;
-}
-
-/*Profile Page*/
-#profile-container{
-  margin: 10px 20px;
-  padding: 10px;
-  width:414px;
-  background-color: rgb(255,255,255);
-  margin: 80px auto;
-}
-
-.profile-user img {
-	width: 180px;
-	height: 200px;
-	border-radius: 50%;
-	display:block;
-  	margin: 10px auto;
-}
-
-.profile-user {
-  text-align: center;
+  color: #8b008b;
 }
 
 #bio {
@@ -521,7 +523,6 @@ button.profile-btn{
 #nav-buttons{
 	margin: 10px auto;
 	text-align: center;
-	width:410px;
 	display: flex;
 	justify-content: space-around;
 }
@@ -530,6 +531,15 @@ button.profile-btn{
 	display: inline-block;
 	text-decoration: none;
 	color: #8b008b;
+	font-size:1.5em;
+	font-variant:small-caps; 
 }
 
-.
+button.yellow {
+	background-color:#E9B200;
+	border: 3px solid #8b008b;
+}
+
+button.yellow.ng-mouseover {
+	animation: pulse 500ms;
+}

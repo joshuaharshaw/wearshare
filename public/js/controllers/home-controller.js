@@ -142,22 +142,40 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 	$scope.getUsers();
 
 	$scope.modalShown = false;
-	$scope.toggleModal = function() { //toggles the value of the modalShown variable
+
+	$scope.toggleModal = function(toggle) { //toggles the value of the modalShown variable
 		$scope.modalShown = !$scope.modalShown;
 		// console.log("Outfit modal working");
-  	if ($scope.modal = ($scope.modal= this.best)){
-			console.log($scope.modal)
+		if ($scope.modal=this.best){
+			$scope.modal===toggle;
+			console.log("topR");
 		}
-		else if ($scope.modal =($scope.modal= this.outfit)){
-			console.log($scope.modal);
+		else if ($scope.modal=this.outfit){
+			$scope.modal===toggle;
+			console.log("my outfit");
 		}
-		else if ($scope.modal=($scope.modal=this.newest)){
-			console.log($scope.modal);
+		else if ($scope.modal=this.newest){
+			$scope.modal=toggle;
+			console.log("newest");
 		}
+	};
 
-
-		// console.log($scope.modal);
-  };
+	// $scope.toggleModal = function() { //toggles the value of the modalShown variable
+	// 	$scope.modalShown = !$scope.modalShown;
+	// 	// console.log("Outfit modal working");
+  // 	if ($scope.modal = ($scope.modal= this.best)){
+	// 		console.log($scope.modal)
+	// 	}
+	// 	else if ($scope.modal =($scope.modal= this.outfit)){
+	// 		console.log($scope.modal);
+	// 	}
+	// 	else if ($scope.modal=($scope.modal=this.newest)){
+	// 		console.log($scope.modal);
+	// 	}
+	//
+	//
+	// 	// console.log($scope.modal);
+  // };
 
 
 });

@@ -114,6 +114,6 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 			$scope.toggleModal(article);
 		}
 
-	}
+	};
 
 });

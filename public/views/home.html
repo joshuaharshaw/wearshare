@@ -5,16 +5,16 @@
   <div class= "box-container">
     <p>Popular - Outfits with the highest score</p>
     <div class="item-container">
-      <div class="outfit" ng-repeat="best in top" ng-click="toggleModal(toggle)">
-        <div class="img-buffer">
+      <div class="outfit" ng-repeat="best in top" >
+        <div class="img-buffer"ng-click="toggleModal(toggle)">
           <img ng-src="{{best.top.image_path}}">
           <img ng-src="{{best.bottom.image_path}}">
           <img ng-src="{{best.shoe.image_path}}">
         </div>
 
         <div>{{best.outfit_name}}</div>
-        <p>{{outfit.outfit_desc}}</p>
-        <p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}}</p>
+        <p>{{best.outfit_desc}}</p>
+        <p>Average Rating: {{best.total_score ? (best.total_score/best.total_votes).toFixed(1):0}}</p>
       </div>
     </div>
 
@@ -24,16 +24,16 @@
       <p>Most Recent Outfits</p>
 
       <div class="item-container">
-        <div class="outfit"  ng-repeat="newest in new" ng-click=toggleModal(toggle)>
-    			<div class="img-buffer">
+        <div class="outfit"  ng-repeat="newest in new">
+    			<div class="img-buffer"ng-click="toggleModal(toggle)">
             <img ng-src="{{newest.outfit.top.image_path}}">
             <img ng-src="{{newest.outfit.bottom.image_path}}">
             <img ng-src="{{newest.outfit.shoe.image_path}}">
     			</div>
 
     	    <div>{{newest.outfit.outfit_name}}</div>
-    			<p>{{outfit.outfit_desc}}</p>
-    			<p>Average Rating: {{outfit.total_score ? (outfit.total_score/outfit.total_votes).toFixed(1):0}}</p>
+    			<p>{{newest.outfit.outfit_desc}}</p>
+    			<p>Average Rating: {{newest.outfit.total_score ? (newest.outfit.total_score/newest.outfit.total_votes).toFixed(1):0}}</p>
     		</div>
       </div>
     </div>
@@ -53,6 +53,7 @@
   </div>
 </div>
 
+<div class="modal-display">
 <outfit-modal show='modalShown' width='400px' height='350px'>
   <div class="modal-img">
     <img ng-src="{{modal.top.image_path}}">
@@ -60,3 +61,4 @@
     <img ng-src="{{modal.shoe.image_path}}">
   </div>
 </outfit-modal>
+</div>

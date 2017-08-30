@@ -6,8 +6,8 @@
 	<div class="item-panel clearfix">
 		<div class="view-title">Outfits</div>
 		<div class="item-container">
-			<div class="outfit" ng-repeat="outfit in outfits"  ng-click="toggleModal()">
-				<div class="img-buffer">
+			<div class="outfit" ng-repeat="outfit in outfits"  >
+				<div class="img-buffer"ng-click="toggleModal()">
 					<img ng-src="{{outfit.top.image_path}}">
 					<img ng-src="{{outfit.bottom.image_path}}">
 					<img ng-src="{{outfit.shoe.image_path}}">

@@ -4,7 +4,7 @@
   <div class= "box-container">
     <p>Popular - Outfits with the highest score</p>
     <div class="item-container">
-      <div class="outfit" ng-repeat="best in top" ng-click="toggleModal()">
+      <div class="outfit" ng-repeat="best in top" ng-click="toggleModal(toggle)">
         <div class="img-buffer">
           <img ng-src="{{best.top.image_path}}">
           <img ng-src="{{best.bottom.image_path}}">
@@ -23,7 +23,11 @@
       <p>Most Recent Outfits</p>
 
       <div class="item-container">
+<<<<<<< HEAD
         <div class="outfit"  ng-repeat="newest in new">
+=======
+        <div class="outfit"  ng-repeat="newest in new"ng-click=toggleModal(toggle)>
+>>>>>>> 98355e2c7880a37879dd8f374920e4e7ecae81f8
     			<div class="img-buffer">
             <img ng-src="{{newest.outfit.top.image_path}}">
             <img ng-src="{{newest.outfit.bottom.image_path}}">
@@ -42,7 +46,7 @@
     <div class="box-container">
       <p>My Ratings</p>
       <div class="item-container">
-        <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'" ng-click="toggleModal()">
+        <div class="outfit" ng-repeat="outfit in outfits| limitTo:-5 | orderBy:'-outfit_id'" ng-click="toggleModal(toggle)">
     			<div class="img-buffer">
     				<img ng-src="{{outfit.top.image_path}}">
     				<img ng-src="{{outfit.bottom.image_path}}">

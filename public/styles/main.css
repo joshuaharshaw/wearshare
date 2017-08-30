@@ -442,3 +442,53 @@ figcaption {
  width: 150px;
 
 }
+
+/*Profile Page*/
+#profile-container{
+  margin: 10px 20px;
+  padding: 10px;
+  width:414px;
+  background-color: rgb(255,255,255);
+  margin: 80px auto;
+}
+
+.profile-user img {
+	width: 180px;
+	height: 200px;
+	border-radius: 50%;
+	display:block;
+  	margin: 10px auto;
+}
+
+.profile-user {
+  text-align: center;
+}
+
+#bio {
+  text-align: center;
+  width:350px;
+  padding: 0 14px 10px 14px;
+  margin: 0 15px 10px;
+}
+
+button.profile-btn{
+  background-color: pink;
+  border-radius: 50%;
+  width: 70%;
+  padding:10px;
+  color:#8b008b;
+  margin: 0 5px;
+  border: 1px solid white;
+  background-color: #E9B200;
+}
+
+button:nth-child(3){
+  border-radius: 50%;
+  width:30%;
+  display: inline-block;
+  width: 15%;
+  display: inline-block;
+  padding-bottom: 8%;
+  text-align: center;
+}
+

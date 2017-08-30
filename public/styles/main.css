@@ -19,6 +19,11 @@ body {
 	background-color:#8b008b;
 }
 
+button.yellow {
+	background-color:#E9B200;
+	border: none;
+}
+
 div#nav-big {
 	float: left;
 	background-color: #E9B200;
@@ -369,22 +374,6 @@ figcaption {
 	opacity: .5;
 }
 
-.rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  text-align: center;
-}
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
-}
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-}
-
 .selected::before {
 	content: url('../images/checkMark.png');
 	position: absolute;
@@ -433,14 +422,33 @@ figcaption {
   display: inline-block;
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
-
-
 }
+
 .modal-img img{
  border-radius: 4px;
  padding: 5px;
  width: 150px;
+}
 
+/*Profile Page*/
+#profile-container{
+  margin: 10px 20px;
+  padding: 10px;
+  width:414px;
+  background-color: rgb(255,255,255);
+  margin: 80px auto;
+}
+
+.profile-user img {
+	width: 180px;
+	height: 200px;
+	border-radius: 50%;
+	display:block;
+  	margin: 10px auto;
+}
+
+.profile-user {
+  text-align: center;
 }
 
 /*Profile Page*/
@@ -482,13 +490,13 @@ button.profile-btn{
   background-color: #E9B200;
 }
 
-button:nth-child(3){
-  border-radius: 50%;
-  width:30%;
-  display: inline-block;
-  width: 15%;
-  display: inline-block;
-  padding-bottom: 8%;
-  text-align: center;
+#nav-buttons{
+margin: 10px auto;
+text-align: center;
+width:410px;
 }
 
+#nav-buttons a {
+display: inline-block;
+text-decoration: none;
+}

@@ -113,7 +113,6 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		else if ($scope.preview===false){
 			$scope.toggleModal(article);
 		}
-
 	};
 
 });

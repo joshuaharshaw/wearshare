@@ -124,7 +124,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		users.then(function (users) {
 			$scope.users = users;
 			console.log("Users: " , $scope.users);
-			// $scope.users.shift();
+			$scope.users.shift();
 		});
 	};
 
@@ -147,22 +147,20 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 	$scope.toggleModal = function(toggle) { //toggles the value of the modalShown variable
 		$scope.modalShown = !$scope.modalShown;
-		// console.log("Outfit modal working");
 		if ($scope.modal=this.best){
 			$scope.modal===toggle;
 			console.log("topR");
 		}
-		else if ($scope.modal=this.outfit){
+		else if ($scope.modal=this.outfit) {
 			$scope.modal===toggle;
 			console.log("my outfit");
 		}
-		else if ($scope.modal=this.newest){
+
+		else if ($scope.modal=this.newest.outfit){
 			$scope.modal=toggle;
 			console.log("newest");
 		}
+
+		console.log($scope.modal);
 	};
-
-
-
-
 });

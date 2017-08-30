@@ -23,7 +23,6 @@
       <p>Most Recent Outfits</p>
 
       <div class="item-container">
-        <div class="outfit"  ng-repeat="newest in new">
         <div class="outfit"  ng-repeat="newest in new" ng-click=toggleModal(toggle)>
     			<div class="img-buffer">
             <img ng-src="{{newest.outfit.top.image_path}}">

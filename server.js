@@ -23,7 +23,7 @@ const upload = multer({
 });
 
 app.get('/users', function(req,res){ //All users
-	pool.query('SELECT * FROM users').then(function(result){
+	pool.query('SELECT * FROM users ORDER BY user_id').then(function(result){
 		res.send(result.rows);
 	}).catch(function(err){
 		console.log(err);

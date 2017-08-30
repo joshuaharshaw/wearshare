@@ -149,7 +149,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		$scope.modalShown = !$scope.modalShown;
 		if ($scope.modal=this.best){
 			$scope.modal===toggle;
-			console.log("topR");
+			console.log($scope.modal);
 		}
 		else if ($scope.modal=this.newest.outfit){
 			$scope.modal===toggle;

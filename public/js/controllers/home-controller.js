@@ -153,7 +153,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		}
 		else if ($scope.modal=this.newest.outfit){
 			$scope.modal===toggle;
-				console.log(this.newest.outfit);
+			console.log("newest");
 		}
 	};
 });

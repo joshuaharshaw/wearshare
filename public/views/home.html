@@ -55,10 +55,14 @@
 
 <div class="modal-display">
 <outfit-modal show='modalShown'>
+  <p>{{modal.outfit_name}}</p>
   <div class="modal-img">
     <img ng-src="{{modal.top.image_path}}">
     <img ng-src="{{modal.bottom.image_path}}">
     <img ng-src="{{modal.shoe.image_path}}">
+    <p>Top: {{modal.top.article_name}}</p>
+		<p>Bottom: {{modal.bottom.article_name}}</p>
+		<p>Shoes: {{modal.shoe.article_name}}</p>
   </div>
 </outfit-modal>
 </div>

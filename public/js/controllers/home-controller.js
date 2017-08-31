@@ -87,7 +87,6 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 					$scope.top.push(target);
 				});
-				console.log("Top Outfits: ",  $scope.top);
 			});
 		};
 
@@ -96,8 +95,6 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 			promise.then(function (newOuts) {
 				var newOutfits = newOuts;
-
-				console.log(newOutfits);
 
 				newOutfits.forEach(function (item) {
 					var target = outfits.find(function (outfit) {
@@ -108,13 +105,11 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 				});
 
 				$scope.new = newOutfits;
-				console.log("Newest Outfits: ",  $scope.new);
 			});
 		};
 
 		$scope.getTop();
 		$scope.getNew();
-
 		$scope.outfits = outfits;
 	});
 
@@ -123,7 +118,6 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 
 		users.then(function (users) {
 			$scope.users = users;
-			console.log("Users: " , $scope.users);
 			$scope.users.shift();
 		});
 	};
@@ -149,7 +143,7 @@ app.controller("homeCtrl", function ($scope, profileService, $routeParams, $loca
 		$scope.modalShown = !$scope.modalShown;
 		if ($scope.modal=this.best){
 			$scope.modal===toggle;
-			console.log("topR");
+			console.log($scope.modal);
 		}
 		else if ($scope.modal=this.newest.outfit){
 			$scope.modal===toggle;

@@ -77,6 +77,9 @@ app.controller("outfitCtrl", function ($scope, profileService, $q, $routeParams,
 		$scope.modalShown = !$scope.modalShown;
 		console.log("Outfit modal working");
   	$scope.modal = this.outfit;
-		console.log($scope.modal);
+		// console.log($scope.modal);
+		console.log($scope.modal.outfit_name);
   };
+
+
 });

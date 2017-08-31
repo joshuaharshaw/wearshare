@@ -104,8 +104,8 @@ h6 {
 .profile-nav:hover {
     background-color: gold;
     border: 3px solid white;
-    width: 90px;
-    height: 90px;
+    width: 83px;
+    height: 83px;
 }
 .switch-nav {
     width: 30px;
@@ -402,9 +402,25 @@ figcaption {
     line-height: 1.5;
 }
 .user {
-    float: left;
-    width: 150px;
+    width: 20%;
     min-height: 75px;
+    font-variant: small-caps;
+    font-size: 25px;
+    color: #8b008b;
+    border: 2px solid #8b008b;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.user h4 {
+    margin-top: 13px;
+}
+
+.user img {
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid #8b008b;
 }
 /*form styles*/
 #file, #select, #item-name, #item-top, #item-bottom, #item-shoe {
@@ -451,6 +467,9 @@ figcaption {
     transform: translate(-50%, -50%);
     width: 50%;
     height: 80%;
+    border:5px solid gold;
+    font-variant: small-caps;
+    font-size: 15px;
 }
 .ng-modal-dialog-content {
   padding:10px;

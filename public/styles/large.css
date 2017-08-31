@@ -24,4 +24,8 @@
    .item-panel form {
         width: 75%;
     }
+
+    .user {
+      width: 25%;
+    }
 }

@@ -54,4 +54,8 @@
     .glyphicon {
         font-size: 15px;
     }
+
+    .user {
+      width: 35%;
+    }
 }

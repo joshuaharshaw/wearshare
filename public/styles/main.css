@@ -1,317 +1,327 @@
 @import url('https://fonts.googleapis.com/css?family=Leckerli+One|Satisfy');
-
 * {
-	font-size: 100%;
-	box-sizing: border-box;
-	margin: 0px;
-	padding: 0px;
+    font-size: 100%;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
-
 .clearfix {
   overflow: auto;
 }
-
 html, body {
-	height: 100%;
+    height: 100%;
 }
-
 body {
-	background-color:#8b008b;
+    background-color:#8b008b;
 }
-
 .primeFactors.ng-enter {
     animation: bounceIn 750ms;
 }
-
 .cardDisplay img.ng-enter {
     animation: fadeInLeft 650ms;
 }
-
 .cardDisplay img.ng-leave {
     animation: fadeOutDown 650ms;
 }
-
 div#nav-big {
-	float: left;
-	background-color: #E9B200;
-	width: 200px;
-	height: 2000px;
-	padding: 10px;
-	text-align: center;
-	margin-right: 30px;
+    float: left;
+    background-color: #E9B200;
+    width: 200px;
+    height: 2000px;
+    padding: 10px;
+    text-align: center;
+    margin-right: 30px;
 }
-
 #nav-logo {
-	font-size:3.5em;
-	color:#8b008b;
-	font-family:'Leckerli One', cursive;
+    font-size:3.5em;
+    color:#8b008b;
+    font-family:'Leckerli One', cursive;
 }
-
 .partition {
-	border:1px solid black;
+    border:1px solid black;
 }
-
 .partition-sm {
-	width: 75%;
-	border:1px solid black;
-	margin:10px auto;
+    width: 75%;
+    border:1px solid black;
+    margin:10px auto;
 }
-
 #user-img-small {
-	width: 100px;
-	height: 100px;
+    width: 100px;
+    height: 100px;
 }
-
 div#nav {
-	display: none;
+    display: none;
 }
-
 ul {
-	list-style: none;
-	padding: 0;
-	font-size:1.5em;
+    list-style: none;
+    padding: 0;
+    font-size:1.5em;
 }
-
 ul a {
-	color: #8b008b;
+    color: #8b008b;
 }
-
 li {
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
-
+h6 {
+    font-size: 14px;
+    text-align: center;
+    font-variant: small-caps;
+}
 #user-img-small {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	border:1px solid black;
-	margin:5px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border:1px solid black;
+    margin:5px auto;
 }
-
 #main-view {
-	float: left;
-	width: 80%;
+    float: left;
+    width: 80%;
 }
-
 .nav-icon {
-	width: 70%;
-	height: 70%;
+    width: 70%;
+    height: 70%;
 }
-
 .two {
-	margin-right: 5px;
+    margin-right: 5px;
 }
-
 .capped {
-	margin-top: 5px;
+    margin-top: 5px;
 }
-
 /*Top Bar - All Buttons/Links*/
 .all-links {
-	text-align: center;
+    text-align: center;
 }
-
 .profile-nav {
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	background-color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid gold;
+    background-color: white;
+    margin: 40px 0;
 }
-
+.profile-nav:hover {
+    background-color: gold;
+    border: 3px solid white;
+    width: 90px;
+    height: 90px;
+}
 .switch-nav {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background-color: gray;
-	margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: gray;
+    margin-top: 20px;
 }
-
 /*Viewport-Clothing Items*/
 #outfit-preview {
-	position: relative;
-	min-height: 110px;
-	width: 50%;
-	background-color: white;
-	margin: 25px auto 10px;
-	display: flex;
-	justify-content: space-around;
+    position: relative;
+    min-height: 110px;
+    width: 95%;
+    background-color: white;
+    border: 2px solid gold;
+    border-radius: 10px;
+    margin: 25px auto 10px;
+    display: flex;
+    justify-content: space-around;
 }
-
 .outfit-btn {
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	background-color: white;
-	color: #8b008b;
-	border:1.5px solid #8b008b;
-	padding: 3px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    width: 125px;
+    font-size: 17px;
+    background-color: white;
+    font-variant: small-caps;
+    color: #8b008b;
+    border: 3px solid #8b008b;
+    padding: 3px;
 }
-
+.outfit-btn:hover {
+    background-color: gold;
+    border: 5px solid #8b008b;
+}
 .outfit-img {
     width: 150px;
     height: 150px;
     margin: 5px 2px;
-    border:3px dashed black;
-	border-radius: 4px;
+    border:2px dashed gray;
+    border-radius: 4px;
 }
-
 #out-name {
-	position: absolute;
-	left: 38%;
-	top: -20px;
-	border-radius:4px;
+position: absolute;
+    left: 39%;
+    font-variant: small-caps;
+    font-size: 20px;
+    text-align: center;
+    top: -40px;
+    width: 250px;
+    height: 35px;
+    border-radius: 4px;
+    padding: 10px;
+    border: solid 2px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
 }
-
+#out-name:focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+    outline: none;
+}
 #make-outfit {
-	margin-left: 10px;
-	height: 50px;
-	position: relative;
-	top: 50px;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    position: relative;
+    top: 35px;
+    background-color: gold;
 }
-
+.glyphicon {
+    font-size: 30px;
+}
 #no-preview {
-	position: absolute;
-	right: 10px;
-	top: 5px;
-	background-color: red;
-	width: 30px;
-	height: 30px;
-	border: 1px solid black;
-	border-radius: 50%;
-	color: white;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    color: white;
 }
-
 .item-panel {
-	position: relative;
-	width:95%;
-	min-height: 500px;
-	background-color: rgba(255,255,255, 1);
-	margin: 10px auto;
-	padding: 10px;
+    position: relative;
+    width: 95%;
+    border: 2px solid gold;
+    min-height: 500px;
+    background-color: rgba(255,255,255, 1);
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 10px;
 }
-
 .item-panel form {
-	text-align: center;
+    text-align: center;
+    font-variant: small-caps;
+    width: 50%;
+    margin: 50px auto;
+    font-size: 15px;
+    padding: 20px 0;
+    border-radius: 10px;
+    border: 2px solid purple;
+    background-color: lightgray;
 }
-
 .item-panel input {
-	margin: 0px auto;
+    margin: 15px auto;
 }
-
 #desc {
-	display: block;
-	margin: 10px auto;
+    display: block;
+    margin: 10px auto;
 }
-
 #add-btn {
-	background-color: white;
-	padding: 3px;
-	border: 1px solid black;
+    background-color: white;
+    padding: 3px;
+    width: 30%;
+    height: 50px;
+    font-size: 15px;
+    margin: 14px 0;
+    border: 1px solid black;
+    border-radius: 5px;
 }
-
+#add-btn:hover {
+    background-color: #8b008b;
+    color: white;
+}
 .view-title {
-	font-size: 2em;
-	font-variant: small-caps;
-	text-align: center;
+    font-size: 2em;
+    font-variant: small-caps;
+    text-align: center;
 }
-
 .item-container {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-
 .clothe {
-	background-color: rgba(	128, 128, 128, 0.3);
-	width: 24%;
-	max-width: 240px;
-	height: 240px;
-	margin: 5px 0px;
-	padding: 6px;
+    background-color: rgba( 128, 128, 128, 0.3);
+    width: 24%;
+    max-width: 240px;
+    height: 240px;
+    margin: 5px 0px;
+    padding: 6px;
 }
-
 .clothe img {
-	width: 100%;
-	height: 180px;
-	display: block;
-	margin:0px auto;
-	background-color: black;
+    width: 100%;
+    height: 180px;
+    display: block;
+    margin:0px auto;
+    background-color: black;
 }
-
 .new-item {
-	border:3px dashed black;
-	border-radius: 8px;
-	text-align:center;
-	height: 230px;
-	margin-left: -8px;
-	padding-top: 30px;
-	margin:0px auto;
+    border:3px dashed black;
+    border-radius: 8px;
+    text-align:center;
+    height: 230px;
+    margin-left: -8px;
+    padding-top: 30px;
+    margin:0px auto;
 }
-
 .new-item p:nth-child(1) {
-	font-size:4em;
+    font-size:4em;
 }
-
 #view-panel {
-	float:right;
-	width: 35%;
-	height: 500px;
-	background-color: white;
-	padding: 15px;
+    float:right;
+    width: 35%;
+    height: 500px;
+    background-color: white;
+    padding: 15px;
 }
-
 #outline {
-	height: 468px;
-	border: 5px dashed gray;
-	border-radius: 8px;
-	text-align: center;
-	padding: 100px 10px;
+    height: 468px;
+    border: 5px dashed gray;
+    border-radius: 8px;
+    text-align: center;
+    padding: 100px 10px;
 }
-
 .outfit {
-	width: 23%;
-	max-width: 200px;
-	margin: 5px 0;
-	padding:10px;
-	background-color: rgba(	128, 128, 128, 0.3);
+    width: 23%;
+    max-width: 200px;
+    margin: 5px 0;
+    font-variant: small-caps;
+    font-size: 16px;
+    padding:10px;
+    background-color: rgba( 128, 128, 128, 0.3);
 }
-
 .img-buffer {
-	position: relative;
-	height: 150px;
-	margin-bottom: 10px;
+    position: relative;
+    height: 150px;
+    margin-bottom: 10px;
 }
-
 .outfit img:nth-child(1) {
-	width: 100px;
-	position: absolute;
-	left: 0px;
+    width: 100px;
+    position: absolute;
+    left: 0px;
 }
-
 .outfit img:nth-child(2) {
-	width: 100px;
-	position: absolute;
-	left: 25px;
-	top: 10px;
+    width: 100px;
+    position: absolute;
+    left: 25px;
+    top: 10px;
 }
-
 .outfit img:nth-child(3) {
-	width: 100px;
-	position: absolute;
-	top: 20px;
-	left:50px;
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    left:50px;
 }
-
 .outfit-form {
-	text-align: center;
+    text-align: center;
 }
-
 .outfit img {
-	width: 100px;
+    width: 100px;
 }
-
-
-
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -329,79 +339,73 @@ li {
    position: absolute;
    color: #E9B200;
 }
-
 /*Home view */
 div#home{
-	padding: 10px;
+    padding: 10px;
 }
-
+div.outfit p {
+    margin: 0 0 10px;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 18px;
+}
 .home{
-	text-align: center;
-	background-color: white;
-	color:#8b008b;
-	text-align: center;
-	margin: 20px auto;
-	font-family: 'Leckerli One', cursive;
-	font-size: 60px;
-	height: 80px;
+    text-align: center;
+    background-color: white;
+    color:#8b008b;
+    text-align: center;
+    margin: 20px auto;
+    font-family: 'Leckerli One', cursive;
+    font-size: 60px;
+    height: 80px;
 }
-
 .home-container{
-	width: 100%;
-	height: auto;
-	border: 10px;
-	background-color:white;
+    width: 100%;
+    height: auto;
+    border: 10px;
+    background-color:white;
 }
-
 .box-container{
-	margin: 10px auto;
-  	padding: 10px;
+    margin: 10px auto;
+    padding: 10px;
 }
-
 .box-container > p {
-	font-size: 1.5em;
-	font-variant: small-caps;
-
+    font-size: 1.5em;
+    font-variant: small-caps;
 }
-
 .box-container:after{
-	content: "";
-	clear: both;
-	display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
-
 .box-item{
-	background: #fefefe;
-	border: 2px solid #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 2px 15px;
-	/* padding: 15px; */
-	padding-bottom: 10px;
-	display: inline-block;
-	width: 200px;
-	height: auto;
+    background: #fefefe;
+    border: 2px solid #fcfcfc;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    margin: 0 2px 15px;
+    /* padding: 15px; */
+    padding-bottom: 10px;
+    display: inline-block;
+    width: 200px;
+    height: auto;
 }
-
 .box-item img{
-  	width: 50%;
-  	height: auto;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
+    width: 50%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
 }
-
 figcaption {
-  	font-size: .9rem;
-	color: #444;
-  	line-height: 1.5;
+    font-size: .9rem;
+    color: #444;
+    line-height: 1.5;
 }
-
 .user {
-	float: left;
-	width: 150px;
-	min-height: 75px;
+    float: left;
+    width: 150px;
+    min-height: 75px;
 }
-
 /*form styles*/
 #file, #select, #item-name, #item-top, #item-bottom, #item-shoe {
   display: block;
@@ -409,7 +413,6 @@ figcaption {
   height: 20px;
   margin: 10px auto;
 }
-
 .form-container{
   border: 10px solid darkMagenta;
   background-color: white;
@@ -417,15 +420,13 @@ figcaption {
   width:30%;
   padding-left: 10px;
 }
-
 .selected {
-	opacity: .5;
+    opacity: .5;
 }
-
 .selected::before {
-	content: url('../images/checkMark.png');
-	position: absolute;
-	padding-left: 20px;
+    content: url('../images/checkMark.png');
+    position: absolute;
+    padding-left: 20px;
 /*Custom directive modal styles */
 }
 .ng-modal-overlay {
@@ -439,25 +440,22 @@ figcaption {
   background-color:#808080;
   opacity: 0.6;
 }
-
 .ng-modal-dialog {
-  background-color: #fff;
-  box-shadow: 10px 10px #595554;
-  border-radius: 4px;
-  z-index:10000;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-	width: 37%;
-  height: 409px;
+    background-color: #fff;
+    box-shadow: 10px 10px #595554;
+    border-radius: 4px;
+    z-index: 10000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 80%;
 }
-
 .ng-modal-dialog-content {
   padding:10px;
   text-align: center;
 }
-
 .ng-modal-close {
   position: absolute;
   top: 3px;
@@ -469,13 +467,11 @@ figcaption {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
-
 .modal-img img{
  border-radius: 4px;
  padding: 5px;
  width: 33%;
 }
-
 /*Profile Page*/
 #profile-container{
   margin: 10px 20px;
@@ -485,28 +481,24 @@ figcaption {
   margin: 80px auto;
   border:5px solid #E9B200;
 }
-
 .profile-user img {
-	width: 180px;
-	height: 200px;
-	border-radius: 50%;
-	display:block;
-  	margin: 10px auto;
-  	border:4px solid #8b008b;
+    width: 180px;
+    height: 200px;
+    border-radius: 50%;
+    display:block;
+    margin: 10px auto;
+    border:4px solid #8b008b;
 }
-
 .profile-user {
   text-align: center;
   color: #8b008b;
 }
-
 #bio {
   text-align: center;
   width:350px;
   padding: 0 14px 10px 14px;
   margin: 0 15px 10px;
 }
-
 button.profile-btn{
   background-color: pink;
   border-radius: 50%;
@@ -517,27 +509,23 @@ button.profile-btn{
   border: 1px solid white;
   background-color: #E9B200;
 }
-
 #nav-buttons{
-	margin: 10px auto;
-	text-align: center;
-	display: flex;
-	justify-content: space-around;
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
-
 #nav-buttons a {
-	display: inline-block;
-	text-decoration: none;
-	color: #8b008b;
-	font-size:1.5em;
-	font-variant:small-caps; 
+    display: inline-block;
+    text-decoration: none;
+    color: #8b008b;
+    font-size:1.5em;
+    font-variant:small-caps; 
 }
-
 button.yellow {
-	background-color:#E9B200;
-	border: 3px solid #8b008b;
+    background-color:#E9B200;
+    border: 3px solid #8b008b;
 }
-
 button.yellow.ng-mouseover {
-	animation: pulse 500ms;
+    animation: pulse 500ms;
 }

@@ -1,35 +1,57 @@
 @media screen and (min-width: 501px) and (max-width: 899px) {
 
-	div#nav-big {
-		width: 120px;
-		padding: 7px;
-		text-align: center;
-		margin-right: 30px;
-	}
-
-	#nav-logo {
-		font-size:2.5em;
-		color:#8b008b;
-		font-family:'Leckerli One', cursive;
-	}
-
-    #main-view {
-    	width: 70%;
+    div#nav-big {
+        width: 120px;
+        padding: 7px;
+        text-align: center;
+        margin-right: 30px;
     }
 
-	.item-panel {
-		width: 92%;
-	}
-
-	#outfit-preview {
-		width: 92%;
-	}
-
-    .clothe {
-    	width: 48%;
+    #nav-logo {
+        font-size:2.5em;
+        color:#8b008b ;
+        font-family:'Leckerli One', cursive;
     }
 
-    .outfit {
-    	width: 44%;
+   #main-view {
+        width: 70%;
+    }
+
+    .item-panel {
+        width: 92%;
+    }
+
+    .item-panel form {
+        width: 80%;
+    }
+
+    .outfit-btn {
+        width: 100px;
+        font-size: 15px;
+    }
+
+    #outfit-preview {
+        width: 90%;
+    }
+
+   .clothe {
+        width: 48%;
+    }
+
+   .outfit {
+        width: 44%;
+    }
+
+   #out-name {
+        left: 26%;
+    }
+
+   #make-outfit {
+        width: 50px;
+        height: 50px;
+        top: 50px;
+    }
+    .glyphicon {
+        font-size: 15px;
     }
 }

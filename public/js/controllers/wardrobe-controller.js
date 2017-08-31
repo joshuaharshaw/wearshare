@@ -1,7 +1,7 @@
 var app = angular.module("outfitApp");
 
 // Controller for Wardrobe Screen
-app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParams, FileUploader) {
+app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParams, FileUploader, $route, $location) {
 	$scope.articles; //All clothing articles for a specific user ID. Obtained on page load.
 	$scope.article = {}; //Object for a new clothing article to be POSTed.
 	$scope.id=$routeParams.user_id || 1; //Route Param. Determines appropriate user ID for entire page.
@@ -34,14 +34,21 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 
 		promise.then(function (articles) {
 			$scope.articles = articles;
-			console.log($scope.articles);
 		});
 	};
 
 	$scope.postArticle = function () {//Send the collected data to the server as a new clothing article.
 		var submitted = JSON.stringify($scope.article);
-		console.log(submitted);
-		profileService.postArticle(submitted);
+		
+		var post = profileService.postArticle(submitted);
+
+		post.then(function (outcome) {
+			console.log(outcome);
+			if (outcome.status === 201) {
+				console.log("Route Reloading. Goodbye.");
+				$route.reload();
+			}
+		});
 	};
 
 	$scope.postOutfit = function () {//Send all selected items to the server as a new outfit
@@ -54,7 +61,13 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		};
 		console.log(outfit);
 
-		profileService.postOutfit($scope.id , outfit);
+		var post = profileService.postOutfit($scope.id , outfit);
+
+		post.then(function (outcome) {
+			if (outcome.status === 201) {
+				$location.path('/profile/outfits');
+			}
+		});
 	};
 
 	$scope.switchView = function (view) { //Change etween viewing/adding articles of clothing.
@@ -66,7 +79,6 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 	});
 
 	$scope.uploader.onBeforeUploadItem = function ( item ) {
-		console.log('onBeforeUploadItem', item);
     	item.formData = [{ article_type: $scope.article.article_type, article_name: $scope.article.article_name, article_desc: $scope.article.article_desc }];
 	};
 
@@ -90,19 +102,13 @@ app.controller("wardrobeCtrl", function ($scope, profileService, $q, $routeParam
 		} else if (article.article_type === "Shoes") {
 			$scope.outfit.shoes = article;
 		}
-
-		console.log($scope.outfit);
 	};
-
-	console.log($scope.preview, $routeParams.show);
 	$scope.getArticles(); //Immediately call the function to obtain all outfits.
 
 	$scope.modalShown = false;
 	$scope.toggleModal = function(article) { //toggles the value of the modalShown variable
 		$scope.modalShown = !$scope.modalShown;
-		// console.log("article modal working");
-  	$scope.modal = article;
-		// console.log($scope.modal);
+  		$scope.modal = article;
 	};
 
 	$scope.onClickArticle = function (article){

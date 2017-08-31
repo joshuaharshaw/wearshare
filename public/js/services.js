@@ -25,9 +25,9 @@ app.service("profileService" , function ($http) {
 		});
 	};
 
-
 	this.postArticle = function (article) {
 		return $http.post('/users/1/articles', article).then(function (response) {
+			console.log("Requested triggered at service:", response);
 			return response;
 		});
 	};

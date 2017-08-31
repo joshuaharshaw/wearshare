@@ -124,9 +124,7 @@ app.post('/users', function(req,res){ //POST to users/Add a ner user. Admin only
 app.post('/users/:user_id/articles', upload.single('file'), (req, res) => {
 
 	if (req.file) {
-	console.log( req.body.article_type);
-    cloudinary.uploader.upload(req.file.path, ({ url }) => {
-      console.log(url);
+   	 cloudinary.uploader.upload(req.file.path, ({ url }) => {
       if (url) {
       var sql ='INSERT INTO articles (user_id, image_path, article_type, article_name, article_desc) '
 		+ 'VALUES ($1::int, $2::text, $3::text, $4::text, $5::text )';
@@ -136,7 +134,7 @@ app.post('/users/:user_id/articles', upload.single('file'), (req, res) => {
 		}).catch(function(err){
 		console.log(err);
 		res.status(500).send("server error");
-	})
+	});
       }
     })
   }
